@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cd68xm5oii48d" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://d2vdi166qyxqs" path="res://Assets/Crescent Moon/Sheets/Idle-Sheet.png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://bhy3sfowpr5jk" path="res://Assets/Full Moon/Sheets/Death-Sheet.png" id="3_8erm5"]
-[ext_resource type="Texture2D" uid="uid://cbyogjcsdaoel" path="res://Assets/Full Moon/Sheets/Attack-Sheet.png" id="3_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://b6x3c28cfoyux" path="res://Assets/Full Moon/Sheets/Take Hit-Sheet.png" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://270ocj44xr7l" path="res://Assets/Full Moon/Sheets/Idle-Sheet.png" id="5_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b0l8ickwkybtn" path="res://Assets/Full Moon/Sheets/Jump-Sheet.png" id="6_gymyn"]
@@ -41,32 +40,35 @@ region = Rect2(1152, 0, 192, 96)
 atlas = ExtResource("2_3smsa")
 region = Rect2(1344, 0, 192, 96)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3smsa"]
+load_path = "res://.godot/imported/Attack-Sheet.png-84214f8c385d68b1ac5c32378dec0974.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(0, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(192, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(384, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(576, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1k8q"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(768, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6mvm"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(960, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57lvd"]
-atlas = ExtResource("3_f1ek2")
+atlas = SubResource("CompressedTexture2D_3smsa")
 region = Rect2(1152, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]

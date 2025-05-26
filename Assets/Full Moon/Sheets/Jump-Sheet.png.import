@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpwii0cvku1j"
-path="res://.godot/imported/Attack-Sheet.png-ce7c67d2642ea8308e5872fbd35bab74.ctex"
+uid="uid://b0l8ickwkybtn"
+path="res://.godot/imported/Jump-Sheet.png-b0641ab5622190d4d13e5122454d2f1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Full Moon/Attack-Sheet.png"
-dest_files=["res://.godot/imported/Attack-Sheet.png-ce7c67d2642ea8308e5872fbd35bab74.ctex"]
+source_file="res://Assets/Full Moon/Sheets/Jump-Sheet.png"
+dest_files=["res://.godot/imported/Jump-Sheet.png-b0641ab5622190d4d13e5122454d2f1d.ctex"]
 
 [params]
 

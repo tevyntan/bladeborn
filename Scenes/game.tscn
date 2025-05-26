@@ -1,18 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=8 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://n4fx3mrtrn16" path="res://Assets/1 Backgrounds/1/Day/1.png" id="2_i6g32"]
+[ext_resource type="Texture2D" uid="uid://chx727h4c4u65" path="res://Assets/1 Backgrounds/1/Day/2.png" id="3_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://bekr0gt2ksaph" path="res://Assets/1 Backgrounds/1/Day/3.png" id="4_v158k"]
+[ext_resource type="Texture2D" uid="uid://b3fy5tgik7wkr" path="res://Assets/1 Backgrounds/1/Day/4.png" id="5_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://bfcyotfhdtitr" path="res://Assets/1 Backgrounds/1/Day/5.png" id="6_ldgsr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebmjs"]
+distance = -10.0
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
-position = Vector2(0, -1)
+position = Vector2(315, 288)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(10, -85)
+zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(316, 279)
 shape = SubResource("WorldBoundaryShape2D_ebmjs")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("2_i6g32")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer2"]
+texture_filter = 1
+texture = ExtResource("3_1l0tm")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer3"]
+texture_filter = 1
+texture = ExtResource("4_v158k")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer4"]
+texture_filter = 1
+texture = ExtResource("5_h4fw4")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer5"]
+texture_filter = 1
+texture = ExtResource("6_ldgsr")
+centered = false

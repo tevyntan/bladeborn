@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("Cres.Jump")
 		
 		if Input.is_action_just_pressed("Attack"):
-			animated_sprite_2d.play("Full.Attack")
+			animated_sprite_2d.play("Cres.Attack")
 			isAttacking = true
 	
 	
@@ -75,4 +75,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "Full.Attack":
+		isAttacking = false
+	if animated_sprite_2d.animation == "Cres.Attack":
 		isAttacking = false

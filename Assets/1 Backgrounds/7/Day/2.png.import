@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tv2o6t03jqi6"
-path="res://.godot/imported/Take Hit-Sheet.png-e74c794b0a4b5e7891b573bc0bffc14f.ctex"
+uid="uid://cb3x8lxfraidy"
+path="res://.godot/imported/2.png-f8e2dc794a2c2d7975e76c26c081ae27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Full Moon/Sheets/Take Hit-Sheet.png"
-dest_files=["res://.godot/imported/Take Hit-Sheet.png-e74c794b0a4b5e7891b573bc0bffc14f.ctex"]
+source_file="res://Assets/1 Backgrounds/7/Day/2.png"
+dest_files=["res://.godot/imported/2.png-f8e2dc794a2c2d7975e76c26c081ae27.ctex"]
 
 [params]
 

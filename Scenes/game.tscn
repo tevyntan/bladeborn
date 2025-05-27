@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=4 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="2_qxrlw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebmjs"]
+distance = -10.0
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
-position = Vector2(0, -1)
+position = Vector2(315, 288)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(10, -85)
+zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(316, 279)
 shape = SubResource("WorldBoundaryShape2D_ebmjs")
+
+[node name="Background" parent="." instance=ExtResource("2_qxrlw")]

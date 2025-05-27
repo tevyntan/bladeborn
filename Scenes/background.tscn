@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkxtkfjskoym5"]
+
+[ext_resource type="Texture2D" uid="uid://n4fx3mrtrn16" path="res://Assets/1 Backgrounds/1/Day/1.png" id="1_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://chx727h4c4u65" path="res://Assets/1 Backgrounds/1/Day/2.png" id="2_rymcx"]
+[ext_resource type="Texture2D" uid="uid://bekr0gt2ksaph" path="res://Assets/1 Backgrounds/1/Day/3.png" id="3_42s4r"]
+[ext_resource type="Texture2D" uid="uid://b3fy5tgik7wkr" path="res://Assets/1 Backgrounds/1/Day/4.png" id="4_kopta"]
+[ext_resource type="Texture2D" uid="uid://bfcyotfhdtitr" path="res://Assets/1 Backgrounds/1/Day/5.png" id="5_wi0l6"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("1_ltlj5")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+texture = ExtResource("2_rymcx")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture_filter = 1
+texture = ExtResource("3_42s4r")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture_filter = 1
+texture = ExtResource("4_kopta")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(575.8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture_filter = 1
+texture = ExtResource("5_wi0l6")
+centered = false

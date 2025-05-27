@@ -55,9 +55,9 @@ func _physics_process(delta: float) -> void:
 			if direction == 0:
 				animated_sprite_2d.play("Cres.Idle")
 			else:
-				animated_sprite_2d.play("Full.Run")
+				animated_sprite_2d.play("Cres.Run")
 		elif isAttacking == false: 
-			animated_sprite_2d.play("Full.Jump")
+			animated_sprite_2d.play("Cres.Jump")
 		
 		if Input.is_action_just_pressed("Attack"):
 			animated_sprite_2d.play("Full.Attack")

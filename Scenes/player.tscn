@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bcmnb2u1npsq0"]
+[gd_scene load_steps=80 format=3 uid="uid://bcmnb2u1npsq0"]
 
 [ext_resource type="Script" uid="uid://cd68xm5oii48d" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://d2vdi166qyxqs" path="res://Assets/Crescent Moon/Sheets/Idle-Sheet.png" id="2_3smsa"]
@@ -517,17 +517,38 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tx1dd"]
 height = 48.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gymyn"]
+size = Vector2(85, 59)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
+height = 44.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_f1ek2")
-animation = &"Cres.Attack"
+animation = &"Full.Attack"
 autoplay = "Full.Idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_tx1dd")
+
+[node name="DealDmgZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DealDmgZone"]
+position = Vector2(43, -31)
+shape = SubResource("RectangleShape2D_gymyn")
+disabled = true
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_gymyn")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

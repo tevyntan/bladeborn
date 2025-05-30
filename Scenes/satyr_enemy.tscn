@@ -1,6 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://bkgf3yyx6lfep"]
+[gd_scene load_steps=42 format=3 uid="uid://bkgf3yyx6lfep"]
 
-[ext_resource type="Texture2D" uid="uid://d3q8xmoec0nis" path="res://Assets/Sprites/Satyr Character-Sheet v1.1/satiro-Sheet v1.1.png" id="1_any5q"]
+[ext_resource type="Texture2D" uid="uid://d3q8xmoec0nis" path="res://Assets/Sprites/Enemy/Satyr Character-Sheet v1.1/satiro-Sheet v1.1.png" id="1_any5q"]
 [ext_resource type="Script" uid="uid://bm33xpae2kuew" path="res://Scripts/satyr_enemy.gd" id="1_xv1wj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv1wj"]
@@ -277,15 +277,16 @@ radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0mgi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv1wj"]
+size = Vector2(240, 132)
+
 [node name="SatyrEnemy" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_xv1wj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_jms2w")
-animation = &"Run"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -307,6 +308,15 @@ shape = SubResource("CircleShape2D_xv1wj")
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_f0mgi")
 
+[node name="SatyrTrackingRadius" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrTrackingRadius"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_xv1wj")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="SatyrHitBox" to="." method="_on_satyr_hit_box_area_entered"]
+[connection signal="body_entered" from="SatyrDealDmgArea" to="." method="_on_satyr_deal_dmg_area_body_entered"]
+[connection signal="body_entered" from="SatyrTrackingRadius" to="." method="_on_satyr_tracking_radius_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=3 uid="uid://bkgf3yyx6lfep"]
 
-[ext_resource type="Texture2D" uid="uid://d3q8xmoec0nis" path="res://Assets/Satyr Character-Sheet v1.1/satiro-Sheet v1.1.png" id="1_any5q"]
+[ext_resource type="Texture2D" uid="uid://d3q8xmoec0nis" path="res://Assets/Sprites/Satyr Character-Sheet v1.1/satiro-Sheet v1.1.png" id="1_any5q"]
 [ext_resource type="Script" uid="uid://bm33xpae2kuew" path="res://Scripts/satyr_enemy.gd" id="1_xv1wj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv1wj"]

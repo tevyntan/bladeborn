@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://djqkx4l74qogm"]
+[gd_scene load_steps=8 format=3 uid="uid://djqkx4l74qogm"]
 
 [ext_resource type="Script" uid="uid://cnpbxqwl7xd14" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://bekr0gt2ksaph" path="res://Assets/Sprites/1 Backgrounds/1/Day/3.png" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://3f6jhjx4oirw" path="res://Assets/Fonts/BLADRMF_.TTF" id="2_1ehe0"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ce3w2"]
-texture = ExtResource("1_48xlc")
+[ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="4_ce3w2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xlc"]
 
@@ -47,15 +44,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ehe0")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ce3w2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -145,9 +133,11 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 50
-text = "Bladeborn"
+text = "bladeborn"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Background" parent="." instance=ExtResource("4_ce3w2")]
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_load_pressed"]

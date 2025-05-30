@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func handle_animations():
-	if Global.PlayerFullMoon:
+	if Global.PlayerFullMoon && !isDead:
 		animated_sprite_2d.play("Aura")
 	else:
 		if !isDead && is_dealing_dmg:

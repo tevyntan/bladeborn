@@ -20,14 +20,17 @@ func _ready() -> void:
 	isDead = false 
 
 func _physics_process(delta: float) -> void:
+	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
 	if !isDead:
 		# Moon Style
 		if Input.is_action_just_pressed("Moon_Change"):
 			if moon == false:
 				moon = true
+				$DealDmgZone.collision_layer = 1
 			else:
 				moon = false
+				$DealDmgZone.collision_layer = 2
 		
 		# Add the gravity.
 		if not is_on_floor():
@@ -102,6 +105,8 @@ func check_hitbox():
 	if hitbox_areas:
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is Satyr_enemy:
+			damage = Global.SatyrDmgAmt 
+		if hitbox.get_parent() is Satyr_spirit:
 			damage = Global.SatyrDmgAmt 
 	
 	if can_take_damage:

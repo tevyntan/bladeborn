@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=13 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="2_qxrlw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://utir4uxsge0w" path="res://Scenes/killzone.tscn" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Tileset/texture.png" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/satyr_enemy.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/satyr_spirit.tscn" id="7_1l0tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("3_wrm1d")
@@ -347,3 +348,6 @@ shape = SubResource("WorldBoundaryShape2D_wowpa")
 
 [node name="SatyrEnemy" parent="." instance=ExtResource("6_i6g32")]
 position = Vector2(813, 585)
+
+[node name="satyr_spirit" parent="." instance=ExtResource("7_1l0tm")]
+position = Vector2(432, 520)

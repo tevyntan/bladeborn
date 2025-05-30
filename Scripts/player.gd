@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -300.0
 var isAttacking = false
 var moon = true
 
-var health = 20
+var health = 40
 var can_take_damage: bool
 var isDead: bool
 
@@ -53,6 +53,10 @@ func handle_animations():
 		deal_dmg_zone.scale.x = - 1
 	# Full Moon Actions
 	
+	#To be added, hurt animation
+	#if !can_take_damage:
+		#pass
+	#else:
 	if moon == true:
 		if is_on_floor() && isAttacking == false:
 			if direction == 0:
@@ -108,6 +112,7 @@ func take_damage(damage):
 	if damage != 0:
 		if health > 0:
 			health -= damage
+			
 			if health <= 0:
 				health = 0
 				isDead = true

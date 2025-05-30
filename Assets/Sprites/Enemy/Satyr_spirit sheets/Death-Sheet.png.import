@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3q8xmoec0nis"
-path="res://.godot/imported/satiro-Sheet v1.1.png-ff29b12c876741df0d3870a0998fd16a.ctex"
+uid="uid://g26jj5ssys2q"
+path="res://.godot/imported/Death-Sheet.png-d2b3b9f17363905b6b1de93fbf236b34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Satyr Character-Sheet v1.1/satiro-Sheet v1.1.png"
-dest_files=["res://.godot/imported/satiro-Sheet v1.1.png-ff29b12c876741df0d3870a0998fd16a.ctex"]
+source_file="res://Assets/Sprites/Enemy/Satyr_spirit sheets/Death-Sheet.png"
+dest_files=["res://.godot/imported/Death-Sheet.png-d2b3b9f17363905b6b1de93fbf236b34.ctex"]
 
 [params]
 

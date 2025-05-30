@@ -15,9 +15,10 @@ var isDead: bool = false
 var taking_damage = false
 var isRoaming: bool
 var dmg_to_deal = 20
+var is_dealign_dmg: bool = false
 
 func _ready() -> void:
-	isChasing = true
+	pass
 	
 func move(delta):
 	if Global.PlayerAlive:
@@ -33,35 +34,47 @@ func move(delta):
 			var knockback_dir = position.direction_to(player.position) * - 50
 			velocity.x = knockback_dir.x
 		else:
-			velocity =+ dir * speed * delta
+			velocity += dir * speed * delta
 	elif isDead:
 		velocity.x = 0
+	
+	#Add Gravity
+	if not is_on_floor() && !isDead:
+		velocity += get_gravity() * delta
+		
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
 	Global.SatyrDmgAmt = dmg_to_deal
 	Global.SatyrDmgZone = $SatyrDealDmgArea
 	
-	if Global.PlayerAlive:
-		isChasing = true
-	else:
+	if !Global.PlayerAlive:
 		isChasing = false
+	
 	move(delta)
-	move_and_slide()
 	handle_animations()
+	
 
 func handle_animations():
-	if !isDead && !taking_damage:
-		animated_sprite_2d.play("Run")
-		if dir.x == - 1:
-			animated_sprite_2d.flip_h = true
-		elif dir.x == 1:
-			animated_sprite_2d.flip_h = false
-	elif !isDead && taking_damage:
-		animated_sprite_2d.play("Hurt")
-	elif isDead && isRoaming:
-		isRoaming = false
-		animated_sprite_2d.play("Death")
+	if !isDead && is_dealign_dmg:
+		animated_sprite_2d.play("Attack")
+	else:
+		if !isDead && !taking_damage:
+			animated_sprite_2d.play("Run")
+			if dir.x == - 1:
+				animated_sprite_2d.flip_h = true
+			elif dir.x == 1:
+				animated_sprite_2d.flip_h = false
+		elif !isDead && taking_damage:
+			animated_sprite_2d.play("Hurt")
+		elif isDead && isRoaming:
+			isRoaming = false
+			animated_sprite_2d.play("Death")
+			$CollisionShape2D.queue_free()
+			$SatyrHitBox.queue_free()
+			$SatyrDealDmgArea.queue_free()
+	
+		
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([1.0, 1.5, 2.0])
@@ -79,6 +92,17 @@ func _on_satyr_hit_box_area_entered(area: Area2D) -> void:
 		take_damage(damage)
 		
 
+func _on_satyr_deal_dmg_area_body_entered(body: Node2D) -> void:
+	if body == Global.PlayerBody:
+		is_dealign_dmg = true
+
+
+func _on_satyr_tracking_radius_body_entered(body: Node2D) -> void:
+	if body == Global.PlayerBody:
+		isChasing = true
+	else:
+		isChasing = false
+
 func take_damage(damage):
 	health -= damage
 	taking_damage = true
@@ -93,3 +117,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		self.queue_free()
 	if animated_sprite_2d.animation == "Hurt":
 		taking_damage = false
+	if animated_sprite_2d.animation == "Attack":
+		is_dealign_dmg = false

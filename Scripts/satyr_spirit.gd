@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Satyr_enemy
+class_name Satyr_spirit
 
 const speed = 10
 var dir: Vector2
@@ -23,7 +23,7 @@ func _ready() -> void:
 func move(delta):
 	if Global.PlayerAlive:
 		player = Global.PlayerBody
-	
+
 	if !isDead:
 		isRoaming = true
 		if !taking_damage && isChasing && Global.PlayerAlive:
@@ -45,36 +45,36 @@ func move(delta):
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
-	Global.SatyrDmgAmt = dmg_to_deal
-	Global.SatyrDmgZone = $SatyrDealDmgArea
+	Global.SatyrSpiritDmgAmt = dmg_to_deal
+	Global.SatyrSpiritDmgZone = $SatyrSpiritDealDmgArea
 	
 	if !Global.PlayerAlive:
 		isChasing = false
-	
 	move(delta)
 	handle_animations()
 	
 
 func handle_animations():
-	if !isDead && is_dealing_dmg:
-		animated_sprite_2d.play("Attack")
+	if Global.PlayerFullMoon:
+		animated_sprite_2d.play("Aura")
 	else:
-		if !isDead && !taking_damage:
-			animated_sprite_2d.play("Run")
-			if dir.x == - 1:
-				animated_sprite_2d.flip_h = true
-			elif dir.x == 1:
-				animated_sprite_2d.flip_h = false
-		elif !isDead && taking_damage:
-			animated_sprite_2d.play("Hurt")
-		elif isDead && isRoaming:
-			isRoaming = false
-			animated_sprite_2d.play("Death")
-			$CollisionShape2D.queue_free()
-			$SatyrHitBox.queue_free()
-			$SatyrDealDmgArea.queue_free()
-	
-		
+		if !isDead && is_dealing_dmg:
+			animated_sprite_2d.play("Attack")
+		else:
+			if !isDead && !taking_damage:
+				animated_sprite_2d.play("Run")
+				if dir.x == - 1:
+					animated_sprite_2d.flip_h = true
+				elif dir.x == 1:
+					animated_sprite_2d.flip_h = false
+			elif !isDead && taking_damage:
+				animated_sprite_2d.play("Hurt")
+			elif isDead && isRoaming:
+				isRoaming = false
+				animated_sprite_2d.play("Death")
+				$CollisionShape2D.queue_free()
+				$SatyrSpiritHitBox.queue_free()
+				$SatyrSpiritDealDmgArea.queue_free()
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([1.0, 1.5, 2.0])
@@ -85,23 +85,21 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
-
-func _on_satyr_hit_box_area_entered(area: Area2D) -> void:
+func _on_satyr_spirit_hit_box_area_entered(area: Area2D) -> void:
 	if area == Global.PlayerDmgZone:
 		var damage = Global.PlayerDmgAmt
 		take_damage(damage)
-		
 
-func _on_satyr_deal_dmg_area_body_entered(body: Node2D) -> void:
+func _on_satyr_spirit_deal_dmg_area_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		is_dealing_dmg = true
 
-
-func _on_satyr_tracking_radius_body_entered(body: Node2D) -> void:
+func _on_satyr_spirit_tracking_radius_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		isChasing = true
 	else:
 		isChasing = false
+
 
 func take_damage(damage):
 	health -= damage

@@ -385,10 +385,10 @@ position = Vector2(81, 712)
 shape = SubResource("WorldBoundaryShape2D_wowpa")
 
 [node name="SatyrEnemy" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(813, 585)
+position = Vector2(433, 520)
 
 [node name="satyr_spirit" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(432, 520)
+position = Vector2(750, 585)
 
 [node name="Platform" parent="." instance=ExtResource("8_v158k")]
 position = Vector2(1370, 538)

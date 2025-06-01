@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://dmq0kpvn0w8qk"]
 
-[ext_resource type="Script" uid="uid://cpuy1508te2xe" path="res://Scripts/satyr_spirit.gd" id="1_8o2vd"]
+[ext_resource type="Script" path="res://Scripts/satyr_spirit.gd" id="1_8o2vd"]
 [ext_resource type="Texture2D" uid="uid://u06wmr4jlct0" path="res://Assets/Sprites/Enemy/Satyr_spirit sheets/Attack-Sheet.png" id="2_7f2ts"]
 [ext_resource type="Texture2D" uid="uid://btlccjms001bg" path="res://Assets/Sprites/Enemy/Satyr_spirit sheets/Spirit_Aura__-Sheet.png" id="3_vu53t"]
 [ext_resource type="Texture2D" uid="uid://g26jj5ssys2q" path="res://Assets/Sprites/Enemy/Satyr_spirit sheets/Death-Sheet.png" id="4_c164w"]

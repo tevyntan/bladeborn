@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BladeBorn"
-run/main_scene="uid://bmj8dtin2aqs3"
+run/main_scene="uid://djqkx4l74qogm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

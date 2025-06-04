@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -11,7 +11,10 @@ var moon = true
 
 var health = 40
 var can_take_damage: bool
+var isTakingDmg: bool = false
 var isDead: bool
+var knockback: Vector2 = Vector2.ZERO
+var knockback_time: float = 0.0
 
 func _ready() -> void:
 	Global.PlayerBody = self
@@ -22,6 +25,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
+	
+	
+
 	if !isDead:
 		# Moon Style
 		if Input.is_action_just_pressed("Moon_Change"):
@@ -40,11 +46,12 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		
+		handle_movement(delta)
 		handle_animations()
 		check_hitbox()
-	
-#Play animations
-func handle_animations():
+	move_and_slide()
+
+func handle_movement(delta):
 	# Get the input direction: -1, 0, 1,  and handle the movement/deceleration.
 	var direction := Input.get_axis("Left", "Right")
 	#Flip sprite
@@ -54,49 +61,65 @@ func handle_animations():
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
 		deal_dmg_zone.scale.x = - 1
-	# Full Moon Actions
 	
-	#To be added, hurt animation
-	#if !can_take_damage:
-		#pass
-	#else:
-	if moon == true:
-		if is_on_floor() && isAttacking == false:
-			if direction == 0:
-				animated_sprite_2d.play("Full.Idle")
-			else:
-				animated_sprite_2d.play("Full.Run")
-		elif isAttacking == false: 
-			animated_sprite_2d.play("Full.Jump")
+	if knockback_time > 0 && !can_take_damage:
+		velocity.x = knockback.x
+		knockback_time -= delta
 		
-		if Input.is_action_just_pressed("Attack") && isAttacking == false:
-			animated_sprite_2d.play("Full.Attack")
-			set_damage()
-			toggle_attack()
-			isAttacking = true
+		if knockback_time <= 0:
+			knockback = Vector2.ZERO
+	else:
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+
+
+#Play animations
+func handle_animations():
+	var direction := Input.get_axis("Left", "Right")
+	
+	# Full Moon Actions
+	if moon == true:
+		if isTakingDmg:
+			animated_sprite_2d.play("Full.Dmg")
+		else:
+			if is_on_floor() && isAttacking == false:
+				if direction == 0:
+					animated_sprite_2d.play("Full.Idle")
+				else:
+					animated_sprite_2d.play("Full.Run")
+			elif isAttacking == false: 
+				animated_sprite_2d.play("Full.Jump")
+			
+			if Input.is_action_just_pressed("Attack") && isAttacking == false:
+				animated_sprite_2d.play("Full.Attack")
+				set_damage()
+				toggle_attack()
+				isAttacking = true
 	# Crescent Moon Actions, duplicated
 	else: 
-		if is_on_floor() && isAttacking == false:
-			if direction == 0:
-				animated_sprite_2d.play("Cres.Idle")
-			else:
-				animated_sprite_2d.play("Cres.Run")
-		elif isAttacking == false: 
-			animated_sprite_2d.play("Cres.Jump")
-		
-		if Input.is_action_just_pressed("Attack") && isAttacking == false:
-			animated_sprite_2d.play("Cres.Attack")
-			set_damage()
-			toggle_attack()
-			isAttacking = true
+		if isTakingDmg:
+			animated_sprite_2d.play("Cres.Dmg")
+		else:
+			if is_on_floor() && isAttacking == false:
+				if direction == 0:
+					animated_sprite_2d.play("Cres.Idle")
+				else:
+					animated_sprite_2d.play("Cres.Run")
+			elif isAttacking == false: 
+				animated_sprite_2d.play("Cres.Jump")
+			
+			if Input.is_action_just_pressed("Attack") && isAttacking == false:
+				animated_sprite_2d.play("Cres.Attack")
+				set_damage()
+				toggle_attack()
+				isAttacking = true
 		
 	
 	
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
+	
+	
 
 #HitBox checker
 func check_hitbox():
@@ -108,9 +131,16 @@ func check_hitbox():
 			damage = Global.SatyrDmgAmt 
 		if hitbox.get_parent() is Satyr_spirit:
 			damage = Global.SatyrDmgAmt 
-	
-	if can_take_damage:
-		take_damage(damage)
+		
+		
+		if can_take_damage:
+			take_damage(damage)
+			var knockback_direction = (self.global_position - hitbox.global_position).normalized()
+			handle_knockback(knockback_direction, 1.00, 0.20)
+
+func handle_knockback(direction, force, knockback_duration) -> void:
+	knockback = direction * force * SPEED
+	knockback_time = knockback_duration
 
 #Player take damage
 func take_damage(damage):
@@ -125,11 +155,16 @@ func take_damage(damage):
 				handle_death()
 			#take damage cooldown
 			can_take_damage = false
+			isTakingDmg = true
 			await get_tree().create_timer(1.0).timeout
 			can_take_damage = true
 
 func handle_death():
-	animated_sprite_2d.play("Full.Death")
+	if moon:
+		animated_sprite_2d.play("Full.Death")
+	else:
+		animated_sprite_2d.play("Cres.Death")
+	
 
 #Attack collision model
 func toggle_attack():
@@ -154,5 +189,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		get_tree().reload_current_scene()
 		self.queue_free()
 		
-		
+	if animated_sprite_2d.animation == "Cres.Death":
+		await get_tree().create_timer(1.0).timeout
+		get_tree().reload_current_scene()
+		self.queue_free()
+	if animated_sprite_2d.animation == "Full.Dmg" || animated_sprite_2d.animation == "Cres.Dmg":
+		isTakingDmg = false
 	

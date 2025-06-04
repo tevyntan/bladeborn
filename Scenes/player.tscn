@@ -1,10 +1,11 @@
-[gd_scene load_steps=80 format=3 uid="uid://bcmnb2u1npsq0"]
+[gd_scene load_steps=87 format=3 uid="uid://bcmnb2u1npsq0"]
 
 [ext_resource type="Script" uid="uid://cd68xm5oii48d" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://d2vdi166qyxqs" path="res://Assets/Sprites/Crescent Moon/Sheets/Idle-Sheet.png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://cppenmfh5hw6x" path="res://Assets/Sprites/Crescent Moon/Sheets/Attack-Sheet.png" id="2_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dvu6kmj1pq5ro" path="res://Assets/Sprites/Crescent Moon/Sheets/Take Hit-Sheet.png" id="2_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://bhy3sfowpr5jk" path="res://Assets/Sprites/Full Moon/Sheets/Death-Sheet.png" id="3_8erm5"]
+[ext_resource type="Texture2D" uid="uid://bq000w7ttfhun" path="res://Assets/Sprites/Crescent Moon/Sheets/Death-Sheet.png" id="3_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://tv2o6t03jqi6" path="res://Assets/Sprites/Full Moon/Sheets/Take Hit-Sheet.png" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://c30sd1pvnq23a" path="res://Assets/Sprites/Crescent Moon/Sheets/Jump-Sheet.png" id="4_gymyn"]
 [ext_resource type="Texture2D" uid="uid://c8rywcj0vygj8" path="res://Assets/Sprites/Crescent Moon/Sheets/Run-Sheet.png" id="5_pu2lt"]
@@ -36,6 +37,30 @@ region = Rect2(768, 0, 192, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sscpr"]
 atlas = ExtResource("2_gymyn")
 region = Rect2(960, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmelf"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(0, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjdqd"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(192, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feq18"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(384, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcnj3"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(576, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsob3"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(768, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg0gw"]
+atlas = ExtResource("3_ukyrk")
+region = Rect2(960, 0, 192, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
 atlas = ExtResource("2_tx1dd")
@@ -292,6 +317,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jmelf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjdqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feq18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcnj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsob3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg0gw")
+}],
+"loop": false,
+"name": &"Cres.Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_83xs0")
 }, {
 "duration": 1.0,
@@ -303,7 +351,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ie7r7")
 }],
-"loop": true,
+"loop": false,
 "name": &"Cres.Dmg",
 "speed": 10.0
 }, {
@@ -438,7 +486,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y6uwr")
 }],
-"loop": true,
+"loop": false,
 "name": &"Full.Dmg",
 "speed": 10.0
 }, {
@@ -519,7 +567,8 @@ height = 48.0
 size = Vector2(85, 59)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
-height = 44.0
+radius = 14.0
+height = 48.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -528,7 +577,7 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_f1ek2")
-animation = &"Full.Attack"
+animation = &"Cres.Dmg"
 autoplay = "Full.Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

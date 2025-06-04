@@ -6,6 +6,7 @@ var PlayerDmgZone: Area2D
 var PlayerDmgAmt: int
 var PlayerAlive: bool
 var PlayerFullMoon: bool
+var PlayerHeath: int
 
 #Satyr
 var SatyrDmgZone: Area2D

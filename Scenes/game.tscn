@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=18 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Tileset/Tileset.png" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://utir4uxsge0w" path="res://Scenes/killzone.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://u7j8rmi1fu74" path="res://Scenes/hud.tscn" id="4_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Tileset/texture.png" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/satyr_enemy.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/satyr_spirit.tscn" id="7_1l0tm"]
@@ -398,3 +399,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ldgsr")
 }
 autoplay = "move"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_h4fw4")]

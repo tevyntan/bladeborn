@@ -25,7 +25,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
-	
+	Global.PlayerHeath = health
 	
 
 	if !isDead:

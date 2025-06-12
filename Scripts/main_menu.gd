@@ -23,8 +23,8 @@ func _on_load_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	main_menu_buttons.visible = false;
-	settings_pop_up.visible = true;
+	main_menu_buttons.visible = false
+	settings_pop_up.visible = true
 
 
 func _on_quit_pressed() -> void:

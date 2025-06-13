@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwxv4b7lc5wf5"]
+
+[ext_resource type="Script" uid="uid://dapciruitpk5n" path="res://Scripts/audio_slider.gd" id="1_i44u3"]
+[ext_resource type="Script" uid="uid://cfb7w582mrpti" path="res://Scripts/settings.gd" id="1_lhmql"]
+[ext_resource type="Script" uid="uid://b8j4eafe6swrr" path="res://Scripts/full_screen_button.gd" id="2_lhmql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaqfp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2dne"]
+bg_color = Color(0.425571, 0.425571, 0.425571, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kysc"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vr2p"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f60ng"]
+color = Color(1, 1, 1, 1)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bismi"]
+color = Color(0.509804, 0.65098, 1, 1)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rgw85"]
+color = Color(0.509804, 0.65098, 1, 1)
+thickness = 10
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhmql")
+
+[node name="SettingsPopUp" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.5
+offset_top = -131.0
+offset_right = 328.5
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsPopUp"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="SettingsPopUp"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -42.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aaqfp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j2dne")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6kysc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vr2p")
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopUp"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 73.0
+offset_right = 574.0
+offset_bottom = 179.0
+theme_override_constants/separation = 31
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPopUp/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="AudioSlider" type="HSlider" parent="SettingsPopUp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_f60ng")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bismi")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rgw85")
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("1_i44u3")
+audio_bus_name = "Music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsPopUp/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="FullScreenButton" type="CheckButton" parent="SettingsPopUp/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+script = ExtResource("2_lhmql")
+
+[connection signal="pressed" from="SettingsPopUp/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="SettingsPopUp/VBoxContainer/HBoxContainer/AudioSlider" to="SettingsPopUp/VBoxContainer/HBoxContainer/AudioSlider" method="_on_value_changed"]
+[connection signal="toggled" from="SettingsPopUp/VBoxContainer/HBoxContainer2/FullScreenButton" to="SettingsPopUp/VBoxContainer/HBoxContainer2/FullScreenButton" method="_on_toggled"]

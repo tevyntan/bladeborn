@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=21 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="2_qxrlw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/satyr_enemy.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/satyr_spirit.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c06vch5maqms5" path="res://Scenes/platform.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/settings.tscn" id="9_rku1e"]
 [ext_resource type="Script" uid="uid://dyj8n5aoof6th" path="res://Scripts/pause.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/chest.tscn" id="11_o5yvi"]
 
@@ -468,6 +469,10 @@ text = "Settings"
 process_mode = 3
 layout_mode = 2
 text = "Quit"
+
+[node name="Settings" parent="CanvasLayer/Pause" instance=ExtResource("9_rku1e")]
+process_mode = 3
+visible = false
 
 [node name="Chest" parent="." instance=ExtResource("11_o5yvi")]
 position = Vector2(623, 466)

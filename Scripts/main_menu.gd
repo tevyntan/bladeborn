@@ -1,16 +1,16 @@
 extends Control
 
 @onready var main_menu_buttons: VBoxContainer = $MainMenuButtons
-@onready var settings_pop_up: Panel = $SettingsPopUp
+@onready var settings: Control = $Settings
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_menu_buttons.visible = true
-	settings_pop_up.visible = false
-
+	settings.visible = false
+	settings.back.connect(_on_settings_back)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -24,12 +24,11 @@ func _on_load_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	main_menu_buttons.visible = false
-	settings_pop_up.visible = true
-
+	settings.visible = true
+	
+func _on_settings_back()-> void:
+	_ready()
+	
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_back_settings_pressed() -> void:
-	_ready()

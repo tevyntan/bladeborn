@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://btaln6jvchs4a"]
 
 [ext_resource type="Script" uid="uid://di6pmeh4k73m3" path="res://Scripts/chest.gd" id="1_cjfl1"]
-[ext_resource type="Texture2D" uid="uid://ywjtuc0fjao0" path="res://Assets/Sprites/4 Animated objects/Chest.png" id="1_lyb87"]
+[ext_resource type="Texture2D" uid="uid://ywjtuc0fjao0" path="res://Assets/Sprites/Map/4 Animated objects/Chest.png" id="1_lyb87"]
 [ext_resource type="AudioStream" uid="uid://bqgua2a8fgyfc" path="res://Assets/Sounds/chest.wav" id="3_bagqn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjfl1"]

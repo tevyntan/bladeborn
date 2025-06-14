@@ -1,7 +1,8 @@
 extends Node
 
 @onready var pause_panel: Panel = %PausePanel
-
+@onready var settings: Control = $Settings	
+	
 func _process(delta: float) -> void:
 	var esc_pressed = Input.is_action_just_pressed("Pause")
 	if esc_pressed:
@@ -19,8 +20,13 @@ func _on_save_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass
+	settings.back.connect(_on_settings_back)
+	pause_panel.hide()
+	settings.show()
 
+func _on_settings_back() -> void:
+	settings.hide()
+	pause_panel.show()
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false

@@ -4,11 +4,11 @@ var audio_bus_id
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var audio_bus_id = AudioServer.get_bus_index(audio_bus_name)
+	audio_bus_id = AudioServer.get_bus_index(audio_bus_name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

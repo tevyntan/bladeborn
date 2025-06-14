@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var powerups: Control = $"../CanvasLayer/Powerups"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,3 +16,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		animation_player.play("pickup")
+		powerups.show()

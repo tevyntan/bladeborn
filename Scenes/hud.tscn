@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bhk1rmgd63t83" path="res://Scripts/hud.gd" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://pksv2u10k60g" path="res://Assets/HUD/heart (32x32).png" id="1_fccik"]
 [ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_bjfho"]
-[ext_resource type="Texture2D" uid="uid://dt8xycqa7jq5g" path="res://Assets/Sprites/Full Moon/Logo.png" id="4_6fbih"]
-[ext_resource type="Texture2D" uid="uid://bqvb8m12mqcs2" path="res://Assets/Sprites/Crescent Moon/Logo.png" id="5_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://dt8xycqa7jq5g" path="res://Assets/Sprites/Player/Full Moon/Logo.png" id="4_6fbih"]
+[ext_resource type="Texture2D" uid="uid://bqvb8m12mqcs2" path="res://Assets/Sprites/Player/Crescent Moon/Logo.png" id="5_t1xeu"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3

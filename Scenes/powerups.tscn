@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbtw5dov1nrgo"]
+
+[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerups.gd" id="1_ly04y"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Text_Screen01_scaled_down.png" id="1_tmioc"]
+[ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Группа 27.png" id="4_dd032"]
+[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Группа 18.png" id="4_ly04y"]
+[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Группа 46.png" id="6_sc3yr"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Группа 49.png" id="7_sc3yr"]
+
+[node name="Powerups" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ly04y")
+
+[node name="Screen" type="Sprite2D" parent="."]
+position = Vector2(584, 342)
+scale = Vector2(15.9565, 11.8387)
+texture = ExtResource("1_tmioc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
+offset_left = -16.0436
+offset_top = -2.78747
+offset_right = 13.9564
+offset_bottom = 5.21253
+theme_override_constants/separation = 2
+
+[node name="Health" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_dd032")
+texture_pressed = ExtResource("4_dd032")
+texture_hover = ExtResource("4_dd032")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Invinsible" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_ly04y")
+texture_pressed = ExtResource("4_ly04y")
+texture_hover = ExtResource("4_ly04y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Fury" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_sc3yr")
+texture_pressed = ExtResource("6_sc3yr")
+texture_hover = ExtResource("6_sc3yr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DoubleJump" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_sc3yr")
+texture_pressed = ExtResource("7_sc3yr")
+texture_hover = ExtResource("7_sc3yr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Screen/HBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/Invinsible" to="." method="_on_invinsible_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/Fury" to="." method="_on_fury_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/DoubleJump" to="." method="_on_double_jump_pressed"]

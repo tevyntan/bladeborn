@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbtw5dov1nrgo"]
+[gd_scene load_steps=7 format=3 uid="uid://cbtw5dov1nrgo"]
 
+[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerups.gd" id="1_ly04y"]
 [ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Text_Screen01_scaled_down.png" id="1_tmioc"]
-[ext_resource type="Texture2D" uid="uid://c5nc5qi0pbk8t" path="res://Assets/HUD/Powerups/Additional/Frame_11.png" id="2_x5ot5"]
-[ext_resource type="Texture2D" uid="uid://xcvtxhyra60u" path="res://Assets/HUD/Powerups/Additional/Skillicon11_11.png" id="3_dd032"]
 [ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Группа 27.png" id="4_dd032"]
 [ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Группа 18.png" id="4_ly04y"]
 [ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Группа 46.png" id="6_sc3yr"]
@@ -15,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ly04y")
 
 [node name="Screen" type="Sprite2D" parent="."]
 position = Vector2(584, 342)
@@ -22,44 +22,49 @@ scale = Vector2(15.9565, 11.8387)
 texture = ExtResource("1_tmioc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
-visible = false
-offset_left = 44.2452
-offset_top = -28.3815
-offset_right = 84.2452
-offset_bottom = 15.6185
+offset_left = -16.0436
+offset_top = -2.78747
+offset_right = 13.9564
+offset_bottom = 5.21253
+theme_override_constants/separation = 2
 
-[node name="Frame11" type="Sprite2D" parent="Screen/HBoxContainer"]
-position = Vector2(11.782, 19.9346)
-scale = Vector2(0.197803, 0.261325)
-texture = ExtResource("2_x5ot5")
+[node name="Health" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_dd032")
+texture_pressed = ExtResource("4_dd032")
+texture_hover = ExtResource("4_dd032")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Skillicon1111" type="Sprite2D" parent="Screen/HBoxContainer"]
-position = Vector2(11.782, 19.9346)
-scale = Vector2(0.223263, 0.279802)
-texture = ExtResource("3_dd032")
+[node name="Invinsible" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_ly04y")
+texture_pressed = ExtResource("4_ly04y")
+texture_hover = ExtResource("4_ly04y")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Screen"]
-offset_left = -19.3651
-offset_top = -8.70028
-offset_right = 7.63485
-offset_bottom = -1.70028
+[node name="Fury" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_sc3yr")
+texture_pressed = ExtResource("6_sc3yr")
+texture_hover = ExtResource("6_sc3yr")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Группа18" type="Sprite2D" parent="Screen/HBoxContainer2"]
-position = Vector2(14, 9.883)
-scale = Vector2(0.012, 0.016)
-texture = ExtResource("4_ly04y")
+[node name="DoubleJump" type="TextureButton" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_sc3yr")
+texture_pressed = ExtResource("7_sc3yr")
+texture_hover = ExtResource("7_sc3yr")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Группа27" type="Sprite2D" parent="Screen/HBoxContainer2"]
-position = Vector2(6, 9.883)
-scale = Vector2(0.012, 0.016)
-texture = ExtResource("4_dd032")
-
-[node name="Группа46" type="Sprite2D" parent="Screen/HBoxContainer2"]
-position = Vector2(22, 9.883)
-scale = Vector2(0.012, 0.016)
-texture = ExtResource("6_sc3yr")
-
-[node name="Группа49" type="Sprite2D" parent="Screen/HBoxContainer2"]
-position = Vector2(30, 9.883)
-scale = Vector2(0.012, 0.016)
-texture = ExtResource("7_sc3yr")
+[connection signal="pressed" from="Screen/HBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/Invinsible" to="." method="_on_invinsible_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/Fury" to="." method="_on_fury_pressed"]
+[connection signal="pressed" from="Screen/HBoxContainer/DoubleJump" to="." method="_on_double_jump_pressed"]

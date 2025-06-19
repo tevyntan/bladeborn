@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=23 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="2_qxrlw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dyj8n5aoof6th" path="res://Scripts/pause.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/chest.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://cbtw5dov1nrgo" path="res://Scenes/powerups.tscn" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/double_jump_screen.tscn" id="13_1phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("3_wrm1d")
@@ -476,6 +477,9 @@ process_mode = 3
 visible = false
 
 [node name="Powerups" parent="CanvasLayer" instance=ExtResource("12_rfjv2")]
+visible = false
+
+[node name="DoubleJumpScreen" parent="CanvasLayer" instance=ExtResource("13_1phco")]
 visible = false
 
 [node name="Chest" parent="." instance=ExtResource("11_o5yvi")]

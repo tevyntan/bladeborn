@@ -1,6 +1,8 @@
 extends Control
 
 @onready var double_jump_screen: Control = $"."
+@onready var double_jump_hud: Control = $"../../HUD/DoubleJump"
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,5 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	double_jump_screen.visible = false;
+	double_jump_screen.visible = false
+	double_jump_hud.show()
+	
 	

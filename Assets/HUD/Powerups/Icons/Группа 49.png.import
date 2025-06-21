@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by645towo3t6h"
-path="res://.godot/imported/Elements-01.png-cc952ae4cb2a77a90eb997834f589aaf.ctex"
+uid="uid://s2jx2yjj8bfr"
+path="res://.godot/imported/Группа 49.png-adfaee0ed057688f118691039a3eba79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/Elements-01.png"
-dest_files=["res://.godot/imported/Elements-01.png-cc952ae4cb2a77a90eb997834f589aaf.ctex"]
+source_file="res://Assets/HUD/Powerups/Icons/Группа 49.png"
+dest_files=["res://.godot/imported/Группа 49.png-adfaee0ed057688f118691039a3eba79.ctex"]
 
 [params]
 

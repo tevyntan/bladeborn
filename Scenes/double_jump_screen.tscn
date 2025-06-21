@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdq1bldgvie16"]
 
-[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Text_Screen01_scaled_down.png" id="1_4hsle"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_4hsle"]
 [ext_resource type="Script" uid="uid://dllrjapaj5byj" path="res://Scripts/double_jump_screen.gd" id="1_nsqdm"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Группа 49.png" id="5_6lhut"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="5_6lhut"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsqdm"]
 

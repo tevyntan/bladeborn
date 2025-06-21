@@ -8,6 +8,8 @@ var PlayerAlive: bool
 var PlayerFullMoon: bool
 var PlayerHeath: int
 
+var DoubleJumpAvailable: bool
+
 #Satyr
 var SatyrDmgZone: Area2D
 var SatyrDmgAmt: int

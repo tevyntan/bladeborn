@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbtw5dov1nrgo"]
 
-[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerups.gd" id="1_ttlxf"]
-[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Text_Screen01_scaled_down.png" id="2_jpc0p"]
-[ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Группа 27.png" id="3_fi1iw"]
-[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Группа 18.png" id="4_f4857"]
-[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Группа 46.png" id="5_5rrjk"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Группа 49.png" id="6_nx7st"]
+[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerupscombined.gd" id="1_ttlxf"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="2_jpc0p"]
+[ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Icons/Группа 27.png" id="3_fi1iw"]
+[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Icons/Группа 18.png" id="4_f4857"]
+[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="5_5rrjk"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="6_nx7st"]
 
 [node name="PowerupsCombined" type="Control"]
 layout_mode = 3

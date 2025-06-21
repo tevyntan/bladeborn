@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_bjfho"]
 [ext_resource type="Texture2D" uid="uid://dt8xycqa7jq5g" path="res://Assets/Sprites/Player/Full Moon/Logo.png" id="4_6fbih"]
 [ext_resource type="Texture2D" uid="uid://bqvb8m12mqcs2" path="res://Assets/Sprites/Player/Crescent Moon/Logo.png" id="5_t1xeu"]
-[ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Elements-01.png" id="6_8jye8"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Группа 49.png" id="7_43w4t"]
+[ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Powerups/Background/Elements-01.png" id="6_8jye8"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="7_43w4t"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3

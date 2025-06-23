@@ -38,14 +38,15 @@ func _physics_process(delta: float) -> void:
 			if moon == false:
 				moon = true
 				$DealDmgZone.collision_layer = 1
-				set_collision_mask_value(2, true)
+				set_collision_mask_value(2, true) #swap mask to interact with diff platforms
 				set_collision_mask_value(3, false)
 
 			else:
 				moon = false
 				$DealDmgZone.collision_layer = 2
-				set_collision_mask_value(2, false)
+				set_collision_mask_value(2, false) #swap mask to interact with diff platforms
 				set_collision_mask_value(3, true)
+		
 		
 		# Add the gravity.
 		if not is_on_floor():

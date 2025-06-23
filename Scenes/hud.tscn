@@ -39,15 +39,15 @@ theme_override_fonts/font = ExtResource("2_bjfho")
 theme_override_font_sizes/font_size = 48
 text = "X"
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="MoonStyle" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control"]
+[node name="Full_logo" type="Sprite2D" parent="VBoxContainer/MoonStyle"]
 position = Vector2(19.568, 76.264)
 scale = Vector2(2, 2)
 texture = ExtResource("4_6fbih")
 
-[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer/Control"]
+[node name="Crescent_logo" type="Sprite2D" parent="VBoxContainer/MoonStyle"]
 position = Vector2(19.568, 76.264)
 scale = Vector2(2, 2)
 texture = ExtResource("5_t1xeu")

@@ -13,8 +13,9 @@ func _process(delta: float) -> void:
 	label.text = str(Global.PlayerHeath)
 
 	if Global.PlayerFullMoon:
-		$VBoxContainer/Control/Sprite2D.visible = true
-		$VBoxContainer/Control/Sprite2D2.visible = false
+		$VBoxContainer/MoonStyle/Full_logo.visible = true
+		$VBoxContainer/MoonStyle/Crescent_logo.visible = false
+
 	else: 
-		$VBoxContainer/Control/Sprite2D.visible = false
-		$VBoxContainer/Control/Sprite2D2.visible = true
+		$VBoxContainer/MoonStyle/Full_logo.visible = false
+		$VBoxContainer/MoonStyle/Crescent_logo.visible = true

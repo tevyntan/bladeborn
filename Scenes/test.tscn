@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbmby0ipewe3w"]
 
-[ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/satyr_enemy.tscn" id="1_lc1oi"]
+[ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/Enemies/satyr_enemy.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="2_8od7v"]
-[ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/satyr_spirit.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/Enemies/satyr_spirit.tscn" id="3_qc4db"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8od7v"]
 

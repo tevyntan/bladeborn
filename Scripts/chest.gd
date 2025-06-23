@@ -18,5 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		animation_player.play("pickup")
 		$AnimatedSprite2D.play("default")
+		await $AnimatedSprite2D.animation_finished
+		get_tree().paused = true
 		double_jump_screen.show()
+		
 		

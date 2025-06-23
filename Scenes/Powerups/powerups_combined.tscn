@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbtw5dov1nrgo"]
 
-[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerupscombined.gd" id="1_ttlxf"]
-[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="2_jpc0p"]
-[ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Icons/Группа 27.png" id="3_fi1iw"]
-[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Icons/Группа 18.png" id="4_f4857"]
-[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="5_5rrjk"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="6_nx7st"]
+[ext_resource type="Script" uid="uid://grhwab1dauwf" path="res://Scripts/powerupscombined.gd" id="1_lkw2n"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="2_ehq5i"]
+[ext_resource type="Texture2D" uid="uid://dxjrxllnc63do" path="res://Assets/HUD/Powerups/Icons/Группа 27.png" id="3_fkpme"]
+[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Icons/Группа 18.png" id="4_i5bm5"]
+[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="5_7p5e1"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="6_170fy"]
 
 [node name="PowerupsCombined" type="Control"]
 layout_mode = 3
@@ -14,12 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ttlxf")
+script = ExtResource("1_lkw2n")
 
 [node name="Screen" type="Sprite2D" parent="."]
 position = Vector2(584, 342)
 scale = Vector2(15.9565, 11.8387)
-texture = ExtResource("2_jpc0p")
+texture = ExtResource("2_ehq5i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 offset_left = -16.0436
@@ -31,36 +31,36 @@ theme_override_constants/separation = 2
 [node name="Health" type="TextureButton" parent="Screen/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_fi1iw")
-texture_pressed = ExtResource("3_fi1iw")
-texture_hover = ExtResource("3_fi1iw")
+texture_normal = ExtResource("3_fkpme")
+texture_pressed = ExtResource("3_fkpme")
+texture_hover = ExtResource("3_fkpme")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Invinsible" type="TextureButton" parent="Screen/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_f4857")
-texture_pressed = ExtResource("4_f4857")
-texture_hover = ExtResource("4_f4857")
+texture_normal = ExtResource("4_i5bm5")
+texture_pressed = ExtResource("4_i5bm5")
+texture_hover = ExtResource("4_i5bm5")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Fury" type="TextureButton" parent="Screen/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("5_5rrjk")
-texture_pressed = ExtResource("5_5rrjk")
-texture_hover = ExtResource("5_5rrjk")
+texture_normal = ExtResource("5_7p5e1")
+texture_pressed = ExtResource("5_7p5e1")
+texture_hover = ExtResource("5_7p5e1")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="DoubleJump" type="TextureButton" parent="Screen/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("6_nx7st")
-texture_pressed = ExtResource("6_nx7st")
-texture_hover = ExtResource("6_nx7st")
+texture_normal = ExtResource("6_170fy")
+texture_pressed = ExtResource("6_170fy")
+texture_hover = ExtResource("6_170fy")
 ignore_texture_size = true
 stretch_mode = 0
 

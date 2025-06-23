@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://djqkx4l74qogm"]
 
-[ext_resource type="Script" uid="uid://cnpbxqwl7xd14" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
-[ext_resource type="FontFile" uid="uid://3f6jhjx4oirw" path="res://Assets/Fonts/BLADRMF_.TTF" id="2_1ehe0"]
-[ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="4_ce3w2"]
-[ext_resource type="AudioStream" uid="uid://mrn8dqho5pqh" path="res://Assets/Music/time_for_adventure.mp3" id="4_n45e2"]
-[ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/settings.tscn" id="5_n45e2"]
+[ext_resource type="Script" uid="uid://cnpbxqwl7xd14" path="res://Scripts/main_menu.gd" id="1_ab7fb"]
+[ext_resource type="FontFile" uid="uid://3f6jhjx4oirw" path="res://Assets/Fonts/BLADRMF_.TTF" id="2_gpijq"]
+[ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="3_pn3xf"]
+[ext_resource type="AudioStream" uid="uid://mrn8dqho5pqh" path="res://Assets/Music/time_for_adventure.mp3" id="4_17gaq"]
+[ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/Menu/settings.tscn" id="5_1di0l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xlc"]
 
@@ -45,7 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1ehe0")
+script = ExtResource("1_ab7fb")
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -133,20 +133,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_fonts/font = ExtResource("2_gpijq")
 theme_override_font_sizes/font_size = 50
 text = "bladeborn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Background" parent="." instance=ExtResource("4_ce3w2")]
+[node name="Background" parent="." instance=ExtResource("3_pn3xf")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_n45e2")
+stream = ExtResource("4_17gaq")
 autoplay = true
 bus = &"Music"
 
-[node name="Settings" parent="." instance=ExtResource("5_n45e2")]
+[node name="Settings" parent="." instance=ExtResource("5_1di0l")]
 layout_mode = 1
 offset_left = 4.0
 offset_top = 1.0

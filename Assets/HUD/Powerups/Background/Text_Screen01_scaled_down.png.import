@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2biy7tpdkcpg"
-path="res://.godot/imported/Группа 18.png-d2b96d76c763d1456e11b0b61323600a.ctex"
+uid="uid://govbbgxfrneh"
+path="res://.godot/imported/Text_Screen01_scaled_down.png-5caa51d61427df03f6182fe953b9bcf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/Powerups/Группа 18.png"
-dest_files=["res://.godot/imported/Группа 18.png-d2b96d76c763d1456e11b0b61323600a.ctex"]
+source_file="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png"
+dest_files=["res://.godot/imported/Text_Screen01_scaled_down.png-5caa51d61427df03f6182fe953b9bcf2.ctex"]
 
 [params]
 

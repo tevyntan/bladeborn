@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 
@@ -15,19 +14,24 @@ var isTakingDmg: bool = false
 var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
+#
+var current_jump_count = 0
+
+
 
 func _ready() -> void:
 	Global.PlayerBody = self
 	Global.PlayerAlive = true
 	can_take_damage = true
-	isDead = false 
+	isDead = false
+	# 
+	Global.DoubleJumpAvailable = false
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
 	Global.PlayerHeath = health
 	
-
 	if !isDead:
 		# Moon Style
 		if Input.is_action_just_pressed("Moon_Change"):
@@ -43,9 +47,16 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 
 		# Handle jump.
-		if Input.is_action_just_pressed("Jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+		# 
+		var max_jump_count = 2 if Global.DoubleJumpAvailable else 1
 		
+		if is_on_floor():
+			current_jump_count = 0
+			
+		if Input.is_action_just_pressed("Jump") and current_jump_count < max_jump_count:
+			velocity.y = JUMP_VELOCITY
+			current_jump_count += 1
+
 		handle_movement(delta)
 		handle_animations()
 		check_hitbox()

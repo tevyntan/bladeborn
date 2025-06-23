@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/settings.tscn" id="9_rku1e"]
 [ext_resource type="Script" uid="uid://dyj8n5aoof6th" path="res://Scripts/pause.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/chest.tscn" id="11_o5yvi"]
-[ext_resource type="PackedScene" uid="uid://cbtw5dov1nrgo" path="res://Scenes/powerups.tscn" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/double_jump_screen.tscn" id="13_1phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("3_wrm1d")
@@ -475,7 +475,9 @@ text = "Quit"
 process_mode = 3
 visible = false
 
-[node name="Powerups" parent="CanvasLayer" instance=ExtResource("12_rfjv2")]
+[node name="PowerupScenes" type="Node" parent="CanvasLayer"]
+
+[node name="DoubleJumpScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("13_1phco")]
 visible = false
 
 [node name="Chest" parent="." instance=ExtResource("11_o5yvi")]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://m81b5eodhb81"]
+[gd_scene load_steps=8 format=3 uid="uid://d1kcalvxb0lij"]
 
-[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_tmioc"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="7_sc3yr"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_h4f5l"]
+[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="2_hluys"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfgle"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78hqt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5ot5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8la7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dd032"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vnwu"]
 bg_color = Color(0.425571, 0.425571, 0.425571, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -17,7 +17,7 @@ shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jctbk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwvei"]
 bg_color = Color(0.427451, 0.427451, 0.427451, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -27,7 +27,7 @@ shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly04y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e0yg"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -37,7 +37,7 @@ shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[node name="Powerups" type="Control"]
+[node name="FuryScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,12 +51,7 @@ offset_left = 231.0
 offset_top = 168.0
 offset_right = 941.0
 offset_bottom = 519.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_qfgle")
-
-[node name="Screen" type="Sprite2D" parent="Panel"]
-position = Vector2(353, 174)
-scale = Vector2(15.9565, 11.8387)
-texture = ExtResource("1_tmioc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_78hqt")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -70,6 +65,32 @@ offset_bottom = 104.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "New Skill Unlocked!"
+
+[node name="Screen" type="Sprite2D" parent="Panel"]
+position = Vector2(353, 174)
+scale = Vector2(15.9565, 11.8387)
+texture = ExtResource("1_h4f5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Screen"]
+position = Vector2(0.0626716, 1.01362)
+scale = Vector2(0.0117114, 0.0154534)
+texture = ExtResource("2_hluys")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -119.0
+offset_right = 16.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 15
+text = "Fury"
 
 [node name="Back" type="Button" parent="Panel"]
 layout_mode = 1
@@ -90,27 +111,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_x5ot5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dd032")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jctbk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ly04y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i8la7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vnwu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bwvei")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6e0yg")
 text = "Back"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 260.0
-offset_top = 104.0
-offset_right = 443.0
-offset_bottom = 245.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer"]
-position = Vector2(91, 70)
-scale = Vector2(0.186873, 0.182948)
-texture = ExtResource("7_sc3yr")
-
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 15
-text = "Double Jump"

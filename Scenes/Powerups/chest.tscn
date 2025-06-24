@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btaln6jvchs4a"]
+[gd_scene load_steps=12 format=3 uid="uid://btaln6jvchs4a"]
 
 [ext_resource type="Script" uid="uid://di6pmeh4k73m3" path="res://Scripts/chest.gd" id="1_cjfl1"]
 [ext_resource type="Texture2D" uid="uid://ywjtuc0fjao0" path="res://Assets/Sprites/Map/4 Animated objects/Chest.png" id="1_lyb87"]
@@ -16,18 +16,6 @@ region = Rect2(48, 0, 48, 48)
 atlas = ExtResource("1_lyb87")
 region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dq33m"]
-atlas = ExtResource("1_lyb87")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6qf6"]
-atlas = ExtResource("1_lyb87")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_25pds"]
-atlas = ExtResource("1_lyb87")
-region = Rect2(240, 0, 48, 48)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_uovm1"]
 animations = [{
 "frames": [{
@@ -39,15 +27,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pmguq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dq33m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6qf6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_25pds")
 }],
 "loop": false,
 "name": &"default",
@@ -141,12 +120,9 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6qf6"]

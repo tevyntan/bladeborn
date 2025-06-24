@@ -19,5 +19,6 @@ func _on_back_pressed() -> void:
 	double_jump_screen.visible = false
 	double_jump_hud.show()
 	Global.DoubleJumpAvailable = true
+	get_tree().paused = false
 	
 	

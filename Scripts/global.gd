@@ -17,3 +17,7 @@ var SatyrDmgAmt: int
 #Satyr_spirit
 var SatyrSpiritDmgZone: Area2D
 var SatyrSpiritDmgAmt: int
+
+#Mage
+var MageDmgZone: Area2D
+var MageDmgAmt: int

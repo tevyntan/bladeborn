@@ -340,12 +340,15 @@ radius = 9.0
 size = Vector2(240, 132)
 
 [node name="satyr_spirit" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_8o2vd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_y657v")
-animation = &"Idle"
+animation = &"Attack"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

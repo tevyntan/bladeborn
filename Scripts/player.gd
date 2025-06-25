@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -300.0
 var isAttacking = false
 var moon = true
 
-var health = 40
+var health = 100
 var can_take_damage: bool
 var isTakingDmg: bool = false
 var isDead: bool
@@ -109,7 +109,7 @@ func handle_animations():
 			elif isAttacking == false: 
 				animated_sprite_2d.play("Full.Jump")
 			
-			if Input.is_action_just_pressed("Attack") && isAttacking == false:
+			if Input.is_action_just_pressed("Attack") && isAttacking == false && isTakingDmg == false:
 				animated_sprite_2d.play("Full.Attack")
 				set_damage()
 				toggle_attack()
@@ -127,7 +127,7 @@ func handle_animations():
 			elif isAttacking == false: 
 				animated_sprite_2d.play("Cres.Jump")
 			
-			if Input.is_action_just_pressed("Attack") && isAttacking == false:
+			if Input.is_action_just_pressed("Attack") && isAttacking == false && isTakingDmg == false:
 				animated_sprite_2d.play("Cres.Attack")
 				set_damage()
 				toggle_attack()
@@ -147,7 +147,9 @@ func check_hitbox():
 		if hitbox.get_parent() is Satyr_enemy:
 			damage = Global.SatyrDmgAmt 
 		if hitbox.get_parent() is Satyr_spirit:
-			damage = Global.SatyrDmgAmt 
+			damage = Global.SatyrSpiritDmgAmt 
+		if hitbox.get_parent() is Mage_enemy:
+			damage = Global.MageDmgAmt 
 		
 		
 		if can_take_damage:
@@ -212,4 +214,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		self.queue_free()
 	if animated_sprite_2d.animation == "Full.Dmg" || animated_sprite_2d.animation == "Cres.Dmg":
 		isTakingDmg = false
+		
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=27 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="2_1phco"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dyj8n5aoof6th" path="res://Scripts/pause.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="13_1phco"]
+[ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("3_wrm1d")
@@ -658,10 +659,10 @@ position = Vector2(81, 712)
 shape = SubResource("WorldBoundaryShape2D_wowpa")
 
 [node name="SatyrEnemy" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(433, 520)
+position = Vector2(464, 519)
 
 [node name="satyr_spirit" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(750, 585)
+position = Vector2(771, 580)
 
 [node name="Platform" parent="." instance=ExtResource("8_v158k")]
 position = Vector2(1370, 538)
@@ -750,6 +751,9 @@ visible = false
 
 [node name="Chest" parent="." instance=ExtResource("11_o5yvi")]
 position = Vector2(623, 466)
+
+[node name="Mage_enemy" parent="." instance=ExtResource("16_nnt18")]
+position = Vector2(1088, 520)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Save" to="CanvasLayer/Pause" method="_on_save_pressed"]

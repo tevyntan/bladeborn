@@ -578,7 +578,7 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_f1ek2")
-animation = &"Cres.Dmg"
+animation = &"Cres.Attack"
 autoplay = "Full.Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

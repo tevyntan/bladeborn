@@ -8,13 +8,13 @@ const JUMP_VELOCITY = -300.0
 var isAttacking = false
 var moon = true
 
-var health = 100
+var health = 60
 var can_take_damage: bool
 var isTakingDmg: bool = false
 var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
-#
+
 var current_jump_count = 0
 
 
@@ -96,50 +96,38 @@ func handle_movement(delta):
 func handle_animations():
 	var direction := Input.get_axis("Left", "Right")
 	
-	# Full Moon Actions
-	if moon == true:
-		if isTakingDmg:
-			animated_sprite_2d.play("Full.Dmg")
-		else:
-			if is_on_floor() && isAttacking == false:
-				if direction == 0:
-					animated_sprite_2d.play("Full.Idle")
-				else:
-					animated_sprite_2d.play("Full.Run")
-			elif isAttacking == false: 
-				animated_sprite_2d.play("Full.Jump")
-			
-			if Input.is_action_just_pressed("Attack") && isAttacking == false && isTakingDmg == false:
-				animated_sprite_2d.play("Full.Attack")
-				set_damage()
-				toggle_attack()
-				isAttacking = true
-	# Crescent Moon Actions, duplicated
-	else: 
-		if isTakingDmg:
-			animated_sprite_2d.play("Cres.Dmg")
-		else:
-			if is_on_floor() && isAttacking == false:
-				if direction == 0:
-					animated_sprite_2d.play("Cres.Idle")
-				else:
-					animated_sprite_2d.play("Cres.Run")
-			elif isAttacking == false: 
-				animated_sprite_2d.play("Cres.Jump")
-			
-			if Input.is_action_just_pressed("Attack") && isAttacking == false && isTakingDmg == false:
-				animated_sprite_2d.play("Cres.Attack")
-				set_damage()
-				toggle_attack()
-				isAttacking = true
+	#Decide which moon animations
+	var prefix = "Full."
+	if not moon:
+		prefix = "Cres."
+
+	#Animations
+	if isTakingDmg:
+		animated_sprite_2d.play(prefix + "Dmg")
+	elif isAttacking:
+		animated_sprite_2d.play(prefix + "Attack")
+	else:
+		if is_on_floor() && isAttacking == false:
+			if direction == 0:
+				animated_sprite_2d.play(prefix + "Idle")
+			else:
+				animated_sprite_2d.play(prefix + "Run")
+		elif isAttacking == false: 
+			animated_sprite_2d.play(prefix + "Jump")
 		
-	
-	
-	
-	
+		if Input.is_action_just_pressed("Attack") && isAttacking == false && isTakingDmg == false:
+			animated_sprite_2d.play(prefix + "Attack")
+			isAttacking = true
+			set_damage()
+			toggle_attack()
+			
+
 
 #HitBox checker
 func check_hitbox():
+	if not can_take_damage:
+		return
+		
 	var hitbox_areas = $PlayerHitBox.get_overlapping_areas()
 	var damage: int
 	if hitbox_areas:
@@ -152,7 +140,6 @@ func check_hitbox():
 			damage = Global.MageDmgAmt 
 		if hitbox.get_parent() is Mage_spirit:
 			damage = Global.MageSpiritDmgAmt 
-		
 		
 		if can_take_damage:
 			take_damage(damage)
@@ -174,13 +161,17 @@ func take_damage(damage):
 				isDead = true
 				Global.PlayerAlive = false
 				handle_death()
+			
+			#handles taking damage interrupt attack
+			cancel_attack()
+			
 			#take damage cooldown
 			can_take_damage = false
 			isTakingDmg = true
-			await get_tree().create_timer(1.0).timeout
-			can_take_damage = true
+			
 
 func handle_death():
+	velocity.x = 0
 	if moon:
 		animated_sprite_2d.play("Full.Death")
 	else:
@@ -191,7 +182,13 @@ func handle_death():
 func toggle_attack():
 	var dmg_zone = deal_dmg_zone.get_node("CollisionShape2D")
 	await get_tree().create_timer(0.5).timeout
-	dmg_zone.disabled = false
+	if isAttacking:
+		dmg_zone.disabled = false
+
+#Cancel the attack animation
+func cancel_attack():
+	$DealDmgZone/CollisionShape2D.disabled = true
+	isAttacking = false
 
 #Set Attack Dmg Amount
 func set_damage():
@@ -199,22 +196,18 @@ func set_damage():
 	Global.PlayerDmgAmt = dmg_amt
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite_2d.animation == "Full.Attack":
-		$DealDmgZone/CollisionShape2D.disabled = true
-		isAttacking = false
-	if animated_sprite_2d.animation == "Cres.Attack":
-		$DealDmgZone/CollisionShape2D.disabled = true
-		isAttacking = false
-	if animated_sprite_2d.animation == "Full.Death":
+	if animated_sprite_2d.animation.ends_with("Attack"):
+		cancel_attack()
+	
+	if animated_sprite_2d.animation.ends_with("Death"):
 		await get_tree().create_timer(1.0).timeout
 		get_tree().reload_current_scene()
 		self.queue_free()
 		
-	if animated_sprite_2d.animation == "Cres.Death":
-		await get_tree().create_timer(1.0).timeout
-		get_tree().reload_current_scene()
-		self.queue_free()
+
 	if animated_sprite_2d.animation == "Full.Dmg" || animated_sprite_2d.animation == "Cres.Dmg":
 		isTakingDmg = false
+		await get_tree().create_timer(0.5).timeout
+		can_take_damage = true
 		
 	

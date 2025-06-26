@@ -253,9 +253,7 @@ script = ExtResource("1_utix6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_i8o1l")
-animation = &"Attack"
-frame = 8
-frame_progress = 1.0
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)

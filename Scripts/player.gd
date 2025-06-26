@@ -150,6 +150,8 @@ func check_hitbox():
 			damage = Global.SatyrSpiritDmgAmt 
 		if hitbox.get_parent() is Mage_enemy:
 			damage = Global.MageDmgAmt 
+		if hitbox.get_parent() is Mage_spirit:
+			damage = Global.MageSpiritDmgAmt 
 		
 		
 		if can_take_damage:

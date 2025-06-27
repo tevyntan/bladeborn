@@ -71,7 +71,7 @@ offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="SettingsPopUp"]
+[node name="SettingsLabel" type="Label" parent="SettingsPopUp"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -118,7 +118,7 @@ theme_override_constants/separation = 31
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Music Volume"
 
@@ -138,7 +138,7 @@ audio_bus_name = "Music"
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsPopUp/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer2"]
+[node name="FullScreenLabel" type="Label" parent="SettingsPopUp/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Full Screen"
 

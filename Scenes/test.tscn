@@ -17,7 +17,7 @@ shape = SubResource("WorldBoundaryShape2D_8od7v")
 position = Vector2(-50, -1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-2, -93)
+position = Vector2(-4, -91)
 zoom = Vector2(2, 2)
 
 [node name="Mage_enemy" parent="." instance=ExtResource("2_qc4db")]

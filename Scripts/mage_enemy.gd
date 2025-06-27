@@ -82,7 +82,7 @@ func handle_animations():
 			animated_sprite_2d.play("Death")
 			$CollisionShape2D.queue_free()
 			$MageHitBox.queue_free()
-			$MageDealDmgArea.queue_free()
+			$MageDealDmgArea/CollisionShape2D.disabled = true
 	
 		
 

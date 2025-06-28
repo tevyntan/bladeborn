@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/Enemies/satyr_spirit.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c06vch5maqms5" path="res://Scenes/platform.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/Menu/settings.tscn" id="9_rku1e"]
-[ext_resource type="Script" path="res://Scripts/pause.gd" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="13_1phco"]
+[ext_resource type="PackedScene" uid="uid://dyqgud24u70hp" path="res://Scenes/Menu/pause_menu.tscn" id="13_nnt18"]
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnt18"]
@@ -677,71 +677,13 @@ autoplay = "move"
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_h4fw4")]
 
-[node name="Pause" type="Node" parent="CanvasLayer"]
-script = ExtResource("10_ldgsr")
+[node name="PauseMenu" type="Node" parent="CanvasLayer"]
 
-[node name="PausePanel" type="Panel" parent="CanvasLayer/Pause"]
-unique_name_in_owner = true
+[node name="Settings" parent="CanvasLayer/PauseMenu" instance=ExtResource("9_rku1e")]
+process_mode = 3
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -123.0
-offset_right = 156.0
-offset_bottom = 39.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Game Paused"
-horizontal_alignment = 1
-
-[node name="PauseButtons" type="VBoxContainer" parent="CanvasLayer/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -57.0
-offset_right = 107.0
-offset_bottom = 79.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Resume" type="Button" parent="CanvasLayer/Pause/PausePanel/PauseButtons"]
-process_mode = 3
-layout_mode = 2
-text = "Resume"
-
-[node name="Save" type="Button" parent="CanvasLayer/Pause/PausePanel/PauseButtons"]
-process_mode = 3
-layout_mode = 2
-text = "Save Game"
-
-[node name="Settings" type="Button" parent="CanvasLayer/Pause/PausePanel/PauseButtons"]
-process_mode = 3
-layout_mode = 2
-text = "Settings"
-
-[node name="Quit" type="Button" parent="CanvasLayer/Pause/PausePanel/PauseButtons"]
-process_mode = 3
-layout_mode = 2
-text = "Quit"
-
-[node name="Settings" parent="CanvasLayer/Pause" instance=ExtResource("9_rku1e")]
-process_mode = 3
+[node name="PauseMenu" parent="CanvasLayer/PauseMenu" instance=ExtResource("13_nnt18")]
 visible = false
 
 [node name="PowerupScenes" type="Node" parent="CanvasLayer"]
@@ -754,8 +696,3 @@ position = Vector2(623, 466)
 
 [node name="Mage_enemy" parent="." instance=ExtResource("16_nnt18")]
 position = Vector2(1088, 520)
-
-[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Save" to="CanvasLayer/Pause" method="_on_save_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Settings" to="CanvasLayer/Pause" method="_on_settings_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/PauseButtons/Quit" to="CanvasLayer/Pause" method="_on_quit_pressed"]

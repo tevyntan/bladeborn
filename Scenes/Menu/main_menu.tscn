@@ -62,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="Button" type="Button" parent="MainMenuButtons"]
+[node name="StartGame" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -76,7 +76,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="MainMenuButtons"]
+[node name="LoadGame" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -90,7 +90,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Load Game"
 
-[node name="Button3" type="Button" parent="MainMenuButtons"]
+[node name="Settings" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -104,7 +104,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Settings"
 
-[node name="Button4" type="Button" parent="MainMenuButtons"]
+[node name="Quit" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -118,7 +118,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
+[node name="BladebornLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,7 +153,7 @@ offset_top = 1.0
 offset_right = 4.0
 offset_bottom = 1.0
 
-[connection signal="pressed" from="MainMenuButtons/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainMenuButtons/Button2" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MainMenuButtons/Button3" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MainMenuButtons/Button4" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainMenuButtons/StartGame" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainMenuButtons/LoadGame" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenuButtons/Quit" to="." method="_on_quit_pressed"]

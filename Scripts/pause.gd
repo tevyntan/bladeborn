@@ -30,5 +30,5 @@ func _on_settings_back() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
 	

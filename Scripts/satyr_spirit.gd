@@ -74,7 +74,7 @@ func handle_animations():
 				animated_sprite_2d.play("Death")
 				$CollisionShape2D.queue_free()
 				$SatyrSpiritHitBox.queue_free()
-				$SatyrSpiritDealDmgArea.queue_free()
+				$SatyrSpiritDealDmgArea.collision_layer = 8
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([1.0, 1.5, 2.0])

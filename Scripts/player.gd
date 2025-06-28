@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var deal_dmg_zone: Area2D = $DealDmgZone
@@ -172,7 +172,6 @@ func take_damage(damage):
 
 func handle_death():
 	velocity.x = 0
-	velocity += get_gravity() * 1
 	if moon:
 		animated_sprite_2d.play("Full.Death")
 	else:

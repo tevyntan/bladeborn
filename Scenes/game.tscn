@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/Menu/settings.tscn" id="9_rku1e"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="13_1phco"]
-[ext_resource type="PackedScene" uid="uid://dyqgud24u70hp" path="res://Scenes/Menu/pause_menu.tscn" id="13_nnt18"]
+[ext_resource type="PackedScene" uid="uid://b64dadbbhvxt1" path="res://Scenes/Menu/pause_menu.tscn" id="13_nnt18"]
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnt18"]

@@ -172,6 +172,7 @@ func take_damage(damage):
 
 func handle_death():
 	velocity.x = 0
+	velocity += get_gravity() * 1
 	if moon:
 		animated_sprite_2d.play("Full.Death")
 	else:

@@ -72,7 +72,7 @@ func handle_animations():
 			animated_sprite_2d.play("Death")
 			$CollisionShape2D.queue_free()
 			$SatyrHitBox.queue_free()
-			$SatyrDealDmgArea.queue_free()
+			$SatyrDealDmgArea.collision_layer = 8
 	
 		
 

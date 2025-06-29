@@ -15,6 +15,7 @@ var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
 
+var max_health = 60
 var current_jump_count = 0
 
 

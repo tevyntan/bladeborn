@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsdhubycatcrt"]
+[gd_scene load_steps=7 format=3 uid="uid://dsdhubycatcrt"]
 
 [ext_resource type="Script" uid="uid://bhk1rmgd63t83" path="res://Scripts/hud.gd" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://pksv2u10k60g" path="res://Assets/HUD/heart (32x32).png" id="1_fccik"]
-[ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_bjfho"]
 [ext_resource type="Texture2D" uid="uid://dt8xycqa7jq5g" path="res://Assets/Sprites/Player/Full Moon/Logo.png" id="4_6fbih"]
 [ext_resource type="Texture2D" uid="uid://bqvb8m12mqcs2" path="res://Assets/Sprites/Player/Crescent Moon/Logo.png" id="5_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Powerups/Background/Elements-01.png" id="6_8jye8"]
@@ -21,24 +20,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Heart" type="Control" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Heart"]
-position = Vector2(19.568, 12.264)
-scale = Vector2(4, 4)
-texture = ExtResource("1_fccik")
-
-[node name="Label" type="Label" parent="VBoxContainer/Heart"]
-layout_mode = 0
-offset_left = 68.568
-offset_top = -5.736
-offset_right = 136.568
-offset_bottom = 45.264
-theme_override_fonts/font = ExtResource("2_bjfho")
-theme_override_font_sizes/font_size = 48
-text = "X"
-
 [node name="MoonStyle" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -51,6 +32,54 @@ texture = ExtResource("4_6fbih")
 position = Vector2(19.568, 76.264)
 scale = Vector2(2, 2)
 texture = ExtResource("5_t1xeu")
+
+[node name="HealthPoints" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HealthPoints"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HealthPoints/TextureRect"]
+position = Vector2(20.568, 10.264)
+scale = Vector2(2.98659, 2.94922)
+texture = ExtResource("1_fccik")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HealthPoints"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HealthPoints/TextureRect2"]
+position = Vector2(20.568, 10.264)
+scale = Vector2(2.98659, 2.94922)
+texture = ExtResource("1_fccik")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HealthPoints"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HealthPoints/TextureRect3"]
+position = Vector2(20.568, 10.264)
+scale = Vector2(2.98659, 2.94922)
+texture = ExtResource("1_fccik")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HealthPoints"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HealthPoints/TextureRect4"]
+position = Vector2(20.568, 10.264)
+scale = Vector2(2.98659, 2.94922)
+texture = ExtResource("1_fccik")
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HealthPoints"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HealthPoints/TextureRect5"]
+position = Vector2(20.568, 10.264)
+scale = Vector2(2.98659, 2.94922)
+texture = ExtResource("1_fccik")
 
 [node name="DoubleJump" type="Control" parent="."]
 visible = false

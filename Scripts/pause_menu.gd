@@ -3,7 +3,7 @@ extends Node
 
 @onready var settings: Control = $"../Settings"
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var esc_pressed = Input.is_action_just_pressed("Pause")
 	if esc_pressed:
 		get_tree().paused = true

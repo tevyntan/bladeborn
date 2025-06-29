@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.PlayerFullMoon:
 		form.text = "Full Moon"
 	else: 
@@ -29,3 +29,9 @@ func _on_form_switch_body_entered(body: Node2D) -> void:
 func _on_form_switch_body_exited(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		form.visible = false
+
+
+func _on_next_scene_body_entered(_body: Node2D) -> void:
+	$NextScene.set_deferred("monitoring", false)
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsdhubycatcrt"]
+[gd_scene load_steps=9 format=3 uid="uid://dsdhubycatcrt"]
 
 [ext_resource type="Script" uid="uid://bhk1rmgd63t83" path="res://Scripts/hud.gd" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://pksv2u10k60g" path="res://Assets/HUD/heart (32x32).png" id="1_fccik"]
 [ext_resource type="Texture2D" uid="uid://dt8xycqa7jq5g" path="res://Assets/Sprites/Player/Full Moon/Logo.png" id="4_6fbih"]
 [ext_resource type="Texture2D" uid="uid://bqvb8m12mqcs2" path="res://Assets/Sprites/Player/Crescent Moon/Logo.png" id="5_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Powerups/Background/Elements-01.png" id="6_8jye8"]
+[ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Icons/Группа 18.png" id="7_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="7_43w4t"]
+[ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="8_5ep0j"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -82,21 +84,60 @@ scale = Vector2(2.98659, 2.94922)
 texture = ExtResource("1_fccik")
 
 [node name="DoubleJump" type="Control" parent="."]
-visible = false
 anchors_preset = 0
-offset_left = -17.432
-offset_top = 502.264
-offset_right = 125.568
-offset_bottom = 629.264
+offset_left = -20.0
+offset_top = 500.0
+offset_right = 123.0
+offset_bottom = 627.0
 
-[node name="Sprite2D" type="Sprite2D" parent="DoubleJump"]
+[node name="DoubleJumpBackground" type="Sprite2D" parent="DoubleJump"]
 position = Vector2(68.943, 57.264)
 scale = Vector2(0.215009, 0.213439)
 texture = ExtResource("6_8jye8")
 region_enabled = true
 region_rect = Rect2(1466, 1297, 543, 506)
 
-[node name="Sprite2D3" type="Sprite2D" parent="DoubleJump"]
+[node name="DoubleJumpIcon" type="Sprite2D" parent="DoubleJump"]
 position = Vector2(70.771, 59.8761)
 scale = Vector2(0.138855, 0.130421)
 texture = ExtResource("7_43w4t")
+
+[node name="Invincible" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 500.0
+offset_right = 243.0
+offset_bottom = 627.0
+
+[node name="InvincibleBackground" type="Sprite2D" parent="Invincible"]
+position = Vector2(68.943, 57.264)
+scale = Vector2(0.215009, 0.213439)
+texture = ExtResource("6_8jye8")
+region_enabled = true
+region_rect = Rect2(1466, 1297, 543, 506)
+
+[node name="InvincibleIcon" type="Sprite2D" parent="Invincible"]
+position = Vector2(70.568, 60.264)
+scale = Vector2(0.138855, 0.130421)
+texture = ExtResource("7_7gr8i")
+
+[node name="Fury" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 220.0
+offset_top = 500.0
+offset_right = 363.0
+offset_bottom = 627.0
+
+[node name="FuryBackground" type="Sprite2D" parent="Fury"]
+position = Vector2(68.943, 57.264)
+scale = Vector2(0.215009, 0.213439)
+texture = ExtResource("6_8jye8")
+region_enabled = true
+region_rect = Rect2(1466, 1297, 543, 506)
+
+[node name="FuryIcon" type="Sprite2D" parent="Fury"]
+position = Vector2(70.771, 59.8761)
+scale = Vector2(0.138855, 0.130421)
+texture = ExtResource("8_5ep0j")

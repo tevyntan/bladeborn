@@ -25,3 +25,7 @@ var MageDmgAmt: int
 #Mage_spirit
 var MageSpiritDmgZone: Area2D
 var MageSpiritDmgAmt: int
+
+#Golem
+var GolemDmgZone: Area2D
+var GolemDmgAmt: int

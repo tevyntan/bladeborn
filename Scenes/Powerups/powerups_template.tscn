@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://m81b5eodhb81"]
 
-[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_83foi"]
-[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="2_gabnx"]
+[ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_f601f"]
+[ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="2_sts7k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfgle"]
 
@@ -37,7 +37,7 @@ shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[node name="Powerups" type="Control"]
+[node name="PowerupsTemplate" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_qfgle")
 [node name="Screen" type="Sprite2D" parent="Panel"]
 position = Vector2(353, 174)
 scale = Vector2(15.9565, 11.8387)
-texture = ExtResource("1_83foi")
+texture = ExtResource("1_f601f")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -106,7 +106,7 @@ offset_bottom = 245.0
 [node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer"]
 position = Vector2(91, 70)
 scale = Vector2(0.186873, 0.182948)
-texture = ExtResource("2_gabnx")
+texture = ExtResource("2_sts7k")
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2

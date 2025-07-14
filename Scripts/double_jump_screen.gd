@@ -1,7 +1,7 @@
 extends Control
 
 @onready var double_jump_screen: Control = $"."
-@onready var double_jump_hud: Control = $"../../HUD/DoubleJump"
+@onready var double_jump_hud: Control = $"../../HUD/Powerups/DoubleJump"
 
 
 

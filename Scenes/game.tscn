@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
 [ext_resource type="PackedScene" uid="uid://dhrks88rs4n4g" path="res://Scenes/Enemies/mage_spirit.tscn" id="17_ewbju"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnt18"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewbju"]
 texture = ExtResource("3_wrm1d")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -143,7 +143,7 @@ texture_region_size = Vector2i(32, 32)
 7:8/0 = 0
 8:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewbju"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85qyi"]
 texture = ExtResource("2_1phco")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -273,7 +273,7 @@ texture_region_size = Vector2i(32, 32)
 7:8/0 = 0
 8:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85qyi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iivbl"]
 texture = ExtResource("3_nb51f")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -410,11 +410,11 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 2
 physics_layer_2/collision_layer = 4
 physics_layer_2/collision_mask = 4
-sources/1 = SubResource("TileSetAtlasSource_nnt18")
-sources/3 = SubResource("TileSetAtlasSource_ewbju")
-sources/5 = SubResource("TileSetAtlasSource_85qyi")
+sources/1 = SubResource("TileSetAtlasSource_ewbju")
+sources/3 = SubResource("TileSetAtlasSource_85qyi")
+sources/5 = SubResource("TileSetAtlasSource_iivbl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iivbl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nbq1"]
 texture = ExtResource("5_wowpa")
 margins = Vector2i(9, 0)
 texture_region_size = Vector2i(32, 32)
@@ -588,7 +588,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_1l0tm"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_iivbl")
+sources/0 = SubResource("TileSetAtlasSource_7nbq1")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
 

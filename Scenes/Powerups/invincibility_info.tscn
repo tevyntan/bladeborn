@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://1r5cup3bpks3"]
+
+[ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Powerups/Background/Elements-01.png" id="1_fu2mt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kl7d3"]
+
+[node name="InvincibilityInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -117.5
+offset_right = 427.0
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kl7d3")
+
+[node name="Screen" type="Sprite2D" parent="Panel"]
+position = Vector2(428, 115)
+scale = Vector2(0.648675, 0.345794)
+texture = ExtResource("1_fu2mt")
+region_enabled = true
+region_rect = Rect2(148, 183, 1019, 428)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_top = 90.5
+offset_right = 340.0
+offset_bottom = 141.5
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 15
+text = "Invincibility enabled. When activated, player will be immune from damage for 2 seconds. This powerup comes with a 20 second cooldown."
+autowrap_mode = 2

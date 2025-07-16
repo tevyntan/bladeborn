@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nqpsjxjo0wsp"
-path="res://.godot/imported/Guldan_Spritesheet.png-6f9cd4e2f9b3bc5f2fec8b8400ca0ffc.ctex"
+uid="uid://cmy5dashydud6"
+path="res://.godot/imported/Spritesheet-Sheet.png-645963fa9571967dc5e881aac8daf333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemy/Guldan/Guldan_Spritesheet.png"
-dest_files=["res://.godot/imported/Guldan_Spritesheet.png-6f9cd4e2f9b3bc5f2fec8b8400ca0ffc.ctex"]
+source_file="res://Assets/Sprites/Enemy/Guldan/Spritesheet-Sheet.png"
+dest_files=["res://.godot/imported/Spritesheet-Sheet.png-645963fa9571967dc5e881aac8daf333.ctex"]
 
 [params]
 

@@ -28,6 +28,10 @@ var MageSpiritDmgAmt: int
 var GolemDmgZone: Area2D
 var GolemDmgAmt: int
 
+#Guldan
+var GuldanDmgZone: Area2D
+var GuldanDmgAmt: int
+
 #Powerups
 var PowerupCounter: int
 var DoubleJumpAvailable: bool

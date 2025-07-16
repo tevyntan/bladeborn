@@ -1,7 +1,5 @@
 extends Control
 
-@onready var double_jump: Control = $DoubleJump
-
 var hearts_list : Array[TextureRect]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

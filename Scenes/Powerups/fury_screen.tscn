@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1kcalvxb0lij"]
+[gd_scene load_steps=9 format=3 uid="uid://d1kcalvxb0lij"]
 
+[ext_resource type="Script" uid="uid://ivhnth4jbxde" path="res://Scripts/fury_screen.gd" id="1_cx72u"]
 [ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_jqxi0"]
 [ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="2_cx72u"]
 
@@ -44,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cx72u")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -93,6 +95,7 @@ theme_override_font_sizes/font_size = 15
 text = "Fury"
 
 [node name="Back" type="Button" parent="Panel"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -116,3 +119,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8vnwu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bwvei")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6e0yg")
 text = "Back"
+
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]

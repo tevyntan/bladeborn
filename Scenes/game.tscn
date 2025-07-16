@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=33 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="2_1phco"]
@@ -14,8 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/Menu/settings.tscn" id="9_rku1e"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="13_1phco"]
+[ext_resource type="PackedScene" uid="uid://4w46m1jknhpg" path="res://Scenes/Powerups/double_jump_info.tscn" id="13_85qyi"]
 [ext_resource type="PackedScene" uid="uid://b64dadbbhvxt1" path="res://Scenes/Menu/pause_menu.tscn" id="13_nnt18"]
+[ext_resource type="PackedScene" uid="uid://d1kcalvxb0lij" path="res://Scenes/Powerups/fury_screen.tscn" id="14_7t8sx"]
+[ext_resource type="PackedScene" uid="uid://bt4k5mqt232a0" path="res://Scenes/Powerups/invicibility_screen.tscn" id="14_mg4q0"]
+[ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="15_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
+[ext_resource type="PackedScene" uid="uid://1r5cup3bpks3" path="res://Scenes/Powerups/invincibility_info.tscn" id="16_vm72l"]
 [ext_resource type="PackedScene" uid="uid://dhrks88rs4n4g" path="res://Scenes/Enemies/mage_spirit.tscn" id="17_ewbju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewbju"]
@@ -686,8 +691,29 @@ visible = false
 [node name="DoubleJumpScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("13_1phco")]
 visible = false
 
+[node name="DoubleJumpInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("13_85qyi")]
+visible = false
+
+[node name="InvincibilityScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("14_mg4q0")]
+visible = false
+
+[node name="InvincibilityInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("16_vm72l")]
+visible = false
+
+[node name="FuryScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("14_7t8sx")]
+visible = false
+
+[node name="FuryInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("15_mg4q0")]
+visible = false
+
 [node name="Chest" parent="." instance=ExtResource("11_o5yvi")]
 position = Vector2(623, 466)
+
+[node name="Chest2" parent="." instance=ExtResource("11_o5yvi")]
+position = Vector2(727, 435)
+
+[node name="Chest3" parent="." instance=ExtResource("11_o5yvi")]
+position = Vector2(779, 432)
 
 [node name="Enemies" type="Node2D" parent="."]
 

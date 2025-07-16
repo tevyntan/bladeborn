@@ -1,8 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://1r5cup3bpks3"]
+[gd_scene load_steps=8 format=3 uid="uid://1r5cup3bpks3"]
 
 [ext_resource type="Texture2D" uid="uid://by645towo3t6h" path="res://Assets/HUD/Powerups/Background/Elements-01.png" id="1_fu2mt"]
+[ext_resource type="Script" uid="uid://dkxpbvua7asmj" path="res://Scripts/invincibility_info.gd" id="1_yrkqx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kl7d3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu2mt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrkqx"]
+bg_color = Color(0.425571, 0.425571, 0.425571, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw5u7"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbgod"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
 [node name="InvincibilityInfo" type="Control"]
 layout_mode = 3
@@ -11,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yrkqx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -47,3 +81,31 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 15
 text = "Invincibility enabled. When activated, player will be immune from damage for 2 seconds. This powerup comes with a 20 second cooldown."
 autowrap_mode = 2
+
+[node name="Back" type="Button" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -284.0
+offset_right = 62.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fu2mt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yrkqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jw5u7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bbgod")
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

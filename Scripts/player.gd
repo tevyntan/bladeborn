@@ -143,7 +143,10 @@ func check_hitbox():
 			damage = Global.MageSpiritDmgAmt 
 		if hitbox.get_parent() is Golem_enemy:
 			damage = Global.GolemDmgAmt 
-		
+		if hitbox.get_parent() is Guldan_Spell:
+			print("hi")
+			damage = 10
+			
 		if can_take_damage:
 			take_damage(damage)
 			var knockback_direction = (self.global_position - hitbox.global_position).normalized()

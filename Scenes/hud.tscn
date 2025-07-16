@@ -84,7 +84,6 @@ scale = Vector2(2.98659, 2.94922)
 texture = ExtResource("1_fccik")
 
 [node name="Powerups" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -20.0
 offset_top = 500.0
@@ -93,6 +92,7 @@ offset_bottom = 614.0
 theme_override_constants/separation = 120
 
 [node name="DoubleJump" type="Control" parent="Powerups"]
+visible = false
 layout_mode = 2
 
 [node name="DoubleJumpBackground" type="Sprite2D" parent="Powerups/DoubleJump"]
@@ -108,6 +108,7 @@ scale = Vector2(0.138855, 0.130421)
 texture = ExtResource("7_43w4t")
 
 [node name="Invincible" type="Control" parent="Powerups"]
+visible = false
 layout_mode = 2
 
 [node name="InvincibleBackground" type="Sprite2D" parent="Powerups/Invincible"]
@@ -123,6 +124,7 @@ scale = Vector2(0.138855, 0.130421)
 texture = ExtResource("7_7gr8i")
 
 [node name="Fury" type="Control" parent="Powerups"]
+visible = false
 layout_mode = 2
 
 [node name="FuryBackground" type="Sprite2D" parent="Powerups/Fury"]

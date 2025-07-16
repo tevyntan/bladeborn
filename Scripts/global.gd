@@ -8,8 +8,6 @@ var PlayerAlive: bool
 var PlayerFullMoon: bool
 var PlayerHeath: int
 
-var DoubleJumpAvailable: bool
-
 #Satyr
 var SatyrDmgZone: Area2D
 var SatyrDmgAmt: int
@@ -29,3 +27,9 @@ var MageSpiritDmgAmt: int
 #Golem
 var GolemDmgZone: Area2D
 var GolemDmgAmt: int
+
+#Powerups
+var PowerupCounter: int
+var DoubleJumpAvailable: bool
+var InvincibilityAvailable: bool
+var FuryAvailable: bool

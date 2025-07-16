@@ -27,6 +27,9 @@ func _ready() -> void:
 	isDead = false
 	# 
 	Global.DoubleJumpAvailable = false
+	Global.InvincibilityAvailable = false
+	Global.FuryAvailable = false
+	Global.PowerupCounter = 0
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon

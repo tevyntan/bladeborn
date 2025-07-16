@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt4k5mqt232a0"]
+[gd_scene load_steps=9 format=3 uid="uid://bt4k5mqt232a0"]
 
 [ext_resource type="Texture2D" uid="uid://govbbgxfrneh" path="res://Assets/HUD/Powerups/Background/Text_Screen01_scaled_down.png" id="1_3puqi"]
+[ext_resource type="Script" uid="uid://c1pofsisngljw" path="res://Scripts/invicibility_screen.gd" id="1_ywa37"]
 [ext_resource type="Texture2D" uid="uid://b2biy7tpdkcpg" path="res://Assets/HUD/Powerups/Icons/Группа 18.png" id="2_h2uwt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlpii"]
@@ -37,13 +38,14 @@ shadow_color = Color(0, 0, 0, 0.203922)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[node name="InvicibleScreen" type="Control"]
+[node name="InvincibilityScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ywa37")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -117,3 +119,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2ctx1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ty8sv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qsx1a")
 text = "Back"
+
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]

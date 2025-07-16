@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgnx2agiokrct"]
+[gd_scene load_steps=27 format=3 uid="uid://dgnx2agiokrct"]
 
 [ext_resource type="Script" uid="uid://bc048w13xesrq" path="res://Scripts/tutorial_map.gd" id="1_dtagc"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="1_tqwtp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cwxv4b7lc5wf5" path="res://Scenes/Menu/settings.tscn" id="11_x2iam"]
 [ext_resource type="PackedScene" uid="uid://b64dadbbhvxt1" path="res://Scenes/Menu/pause_menu.tscn" id="12_aob13"]
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="12_dtagc"]
+[ext_resource type="PackedScene" uid="uid://4w46m1jknhpg" path="res://Scenes/Powerups/double_jump_info.tscn" id="12_e1gt3"]
 [ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="13_x2iam"]
 [ext_resource type="Texture2D" uid="uid://d2mt4tr0dsqny" path="res://Assets/Fonts/BaltKeys_light.png" id="14_dtagc"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="16_aob13"]
@@ -642,6 +643,9 @@ visible = false
 [node name="PowerupScenes" type="Node" parent="CanvasLayer"]
 
 [node name="DoubleJumpScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("12_dtagc")]
+visible = false
+
+[node name="DoubleJumpInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("12_e1gt3")]
 visible = false
 
 [node name="hplabel" type="Label" parent="CanvasLayer"]

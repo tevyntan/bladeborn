@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbmby0ipewe3w"]
+[gd_scene load_steps=14 format=3 uid="uid://cbmby0ipewe3w"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://bopivsrjmuin6" path="res://Scenes/Enemies/golem.tscn" id="2_qc4db"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="4_5wyu1"]
 [ext_resource type="Texture2D" uid="uid://cerhiauuru0uo" path="res://Assets/Sprites/Map/Tileset/Tileset_crescent.png" id="5_0c07c"]
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Map/Tileset/texture.png" id="6_2cgwh"]
+[ext_resource type="PackedScene" uid="uid://xg3jbu7v1a74" path="res://Scenes/Enemies/guldan_spell.tscn" id="7_5wyu1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iaow0"]
 texture = ExtResource("3_i3aeo")
@@ -601,3 +602,6 @@ layer_0/tile_data = PackedInt32Array(589830, 1, 0, 589831, 65537, 0, 589832, 655
 position = Vector2(37, -298)
 tile_set = SubResource("TileSet_0qy5o")
 format = 2
+
+[node name="GuldanSpell" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(208, -22)

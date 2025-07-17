@@ -31,12 +31,12 @@ func _physics_process(delta: float) -> void:
 	if distance_travelled >= maximum_distance:
 		hitting = true
 		animation_player.play("Hit")
-		await get_tree().create_timer(0.3).timeout 
+		await get_tree().create_timer(0.5).timeout 
 		collision_layer = 1
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		hitting = true
 		animation_player.play("Hit")
-		await get_tree().create_timer(0.3).timeout 
+		await get_tree().create_timer(0.5).timeout 
 		collision_layer = 1

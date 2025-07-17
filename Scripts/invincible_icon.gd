@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable:
 		timer.start()
 		timer_bool = true
+		Global.InvincibilityAvailable = false
 		
 	handle_timer(timer_bool)
 
@@ -21,6 +22,7 @@ func _on_timer_timeout() -> void:
 	time.text = ""
 	cooldown.value = 0
 	timer_bool = false
+	Global.InvincibilityAvailable = true
 	
 func handle_timer(bool):
 	if bool:

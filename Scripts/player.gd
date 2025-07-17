@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -350.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,13 +19,12 @@ var max_health = 60
 var current_jump_count = 0
 
 
-
 func _ready() -> void:
 	Global.PlayerBody = self
 	Global.PlayerAlive = true
 	can_take_damage = true
 	isDead = false
-	# 
+	
 	Global.DoubleJumpAvailable = false
 	Global.InvincibilityAvailable = false
 	Global.FuryAvailable = false
@@ -69,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		handle_movement(delta)
 		handle_animations()
 		check_hitbox()
+		handle_fury()
 	move_and_slide()
 
 func handle_movement(delta):
@@ -164,6 +164,7 @@ func take_damage(damage):
 	if damage != 0:
 		if health > 0:
 			health -= damage
+			Global.PlayerDmgCount +=1
 			
 			if health <= 0:
 				health = 0
@@ -221,5 +222,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		can_take_damage = true
 		
 
-func activate_fury():
+func handle_fury():
+	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
+		Global.PlayerDmgAmt *= 2
+		await get_tree().create_timer(10).timeout
+		Global.PlayerDmgAmt = Global.PlayerDmgAmt / 2
+		
+func handle_invincible():
 	pass

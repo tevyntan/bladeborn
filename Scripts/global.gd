@@ -4,9 +4,11 @@ extends Node
 var PlayerBody = CharacterBody2D
 var PlayerDmgZone: Area2D
 var PlayerDmgAmt: int
+var PlayerDmgCount: int = 0
 var PlayerAlive: bool
 var PlayerFullMoon: bool
 var PlayerHeath: int
+
 
 #Satyr
 var SatyrDmgZone: Area2D

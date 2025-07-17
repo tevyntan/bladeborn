@@ -11,6 +11,7 @@ var dir: Vector2
 var isChasing: bool
 var player: CharacterBody2D
 
+
 var health = 30
 var isDead: bool = false 
 var taking_damage = false
@@ -19,9 +20,21 @@ var dmg_to_deal = 20
 var is_dealing_dmg: bool = false
 var Spell = preload("res://Scenes/Enemies/guldan_spell.tscn")
 
+#From variable to show what form guldan is in, true - physical; false - spirit
+var form: bool = false
+
+
 func _ready() -> void:
-	pass
-	
+	#While loop to constantly change the boss form
+	while not isDead:
+		await get_tree().create_timer(2.0).timeout
+		if form:
+			form = false
+			$GuldanHitBox.collision_mask = 2
+		else:
+			form = true
+			$GuldanHitBox.collision_mask = 1
+
 func move(delta):
 	if Global.PlayerAlive:
 		player = Global.PlayerBody
@@ -67,22 +80,29 @@ func _physics_process(delta: float) -> void:
 	
 
 func handle_animations():
+	
+	#Decide which form animations
+	var prefix = "Phys."
+	if not form:
+		prefix = "Spirit."
+	
+	
 	if !isDead && is_dealing_dmg:
-		animated_sprite_2d.play("Attack")
+		animated_sprite_2d.play(prefix + "Cast")
 	else:
 		if !isDead && !taking_damage:
-			animated_sprite_2d.play("Run")
+			animated_sprite_2d.play(prefix + "Run")
 			if dir.x == - 1:
 				animated_sprite_2d.flip_h = false
 			elif dir.x == 1:
 				animated_sprite_2d.flip_h = true
 		elif !isDead && taking_damage:
-			animated_sprite_2d.play("Hurt")
+			animated_sprite_2d.play(prefix + "Hurt")
 		elif isDead && isRoaming:
 			isRoaming = false
-			animated_sprite_2d.play("Death")
+			animated_sprite_2d.play(prefix + "Death")
 			$CollisionShape2D.queue_free()
-			$GuldanHitBox.queue_free()
+			#$GuldanHitBox.queue_free()
 			$GuldanDealDmgArea/CollisionShape2D.disabled = true
 		
 
@@ -134,10 +154,10 @@ func take_damage(damage):
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite_2d.animation == "Death":
-		#await get_tree().create_timer(0.3).timeout
+
+	if animated_sprite_2d.animation.ends_with("Death"):
 		self.queue_free()
-	if animated_sprite_2d.animation == "Hurt":
+	if animated_sprite_2d.animation.ends_with("Hurt"):
 		taking_damage = false
-	if animated_sprite_2d.animation == "Attack":
+	if animated_sprite_2d.animation.ends_with("Cast"):
 		is_dealing_dmg = false

@@ -56,8 +56,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 
-		# Handle jump.
-		# 
+		# Handle jump including double jump. 
 		var max_jump_count = 2 if Global.DoubleJumpAvailable else 1
 		
 		if is_on_floor():
@@ -221,4 +220,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		await get_tree().create_timer(0.5).timeout
 		can_take_damage = true
 		
-	
+
+func activate_fury():
+	pass

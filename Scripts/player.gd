@@ -225,8 +225,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func handle_fury():
 	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
 		Global.PlayerDmgAmt *= 2
+		SPEED = 400;
 		await get_tree().create_timer(10).timeout
 		Global.PlayerDmgAmt = Global.PlayerDmgAmt / 2
-		
+		SPEED = 300;
+
 func handle_invincible():
 	pass

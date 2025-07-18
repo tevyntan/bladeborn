@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsdhubycatcrt"]
+[gd_scene load_steps=12 format=3 uid="uid://dsdhubycatcrt"]
 
 [ext_resource type="Script" uid="uid://bhk1rmgd63t83" path="res://Scripts/hud.gd" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://pksv2u10k60g" path="res://Assets/HUD/heart (32x32).png" id="1_fccik"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://s2jx2yjj8bfr" path="res://Assets/HUD/Powerups/Icons/Группа 49.png" id="7_43w4t"]
 [ext_resource type="Texture2D" uid="uid://bh2hwjcrn6nw2" path="res://Assets/HUD/Powerups/Icons/Группа 46.png" id="8_5ep0j"]
 [ext_resource type="Script" uid="uid://vjbhfoi45x3t" path="res://Scripts/invincible_icon.gd" id="8_7gr8i"]
+[ext_resource type="Script" uid="uid://djcfy7ntsuir0" path="res://Scripts/fury_icon.gd" id="10_4f5kr"]
 [ext_resource type="PackedScene" uid="uid://ck0ijtfdrfe7p" path="res://Scenes/Powerups/fury_meter.tscn" id="10_5ep0j"]
 
 [node name="HUD" type="Control"]
@@ -196,6 +197,18 @@ region_rect = Rect2(1466, 1297, 543, 506)
 position = Vector2(70.771, 59.8761)
 scale = Vector2(0.138855, 0.130421)
 texture = ExtResource("8_5ep0j")
+script = ExtResource("10_4f5kr")
+
+[node name="Cooldown" type="TextureProgressBar" parent="Powerups/Fury/FuryIcon"]
+offset_left = -253.523
+offset_top = -250.053
+offset_right = 258.477
+offset_bottom = 261.947
+step = 0.01
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("8_5ep0j")
+tint_progress = Color(0.174626, 0.174626, 0.174626, 1)
 
 [node name="Key" type="Label" parent="Powerups/Fury/FuryIcon"]
 anchors_preset = 2
@@ -211,6 +224,23 @@ theme_override_font_sizes/font_size = 130
 text = "J"
 vertical_alignment = 2
 
+[node name="Time" type="Label" parent="Powerups/Fury/FuryIcon"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 108.026
+offset_top = -979.716
+offset_right = 607.026
+offset_bottom = -726.716
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "10.0"
+vertical_alignment = 2
+
+[node name="Timer" type="Timer" parent="Powerups/Fury/FuryIcon"]
+wait_time = 10.0
+
 [node name="FuryMeter" parent="." instance=ExtResource("10_5ep0j")]
 layout_mode = 1
 offset_left = 1030.57
@@ -219,3 +249,4 @@ offset_right = 1030.57
 offset_bottom = -11.736
 
 [connection signal="timeout" from="Powerups/Invincible/InvincibleIcon/Timer" to="Powerups/Invincible/InvincibleIcon" method="_on_timer_timeout"]
+[connection signal="timeout" from="Powerups/Fury/FuryIcon/Timer" to="Powerups/Fury/FuryIcon" method="_on_timer_timeout"]

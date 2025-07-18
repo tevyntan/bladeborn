@@ -31,6 +31,7 @@ var GolemDmgAmt: int
 #Guldan
 var GuldanDmgZone: Area2D
 var GuldanDmgAmt: int
+var GuldanHealth: float
 
 #Powerups
 var PowerupCounter: int

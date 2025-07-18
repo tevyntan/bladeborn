@@ -12,7 +12,7 @@ var isChasing: bool
 var player: CharacterBody2D
 
 
-var health = 30
+var health = 100
 var isDead: bool = false 
 var taking_damage = false
 var isRoaming: bool
@@ -71,7 +71,7 @@ func move(delta):
 func _physics_process(delta: float) -> void:
 	Global.GuldanDmgAmt = dmg_to_deal
 	Global.GuldanDmgZone = $GuldanDealDmgArea
-	
+	Global.GuldanHealth = health
 	if !Global.PlayerAlive:
 		isChasing = false
 	

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Map/Tileset/texture.png" id="6_2cgwh"]
 [ext_resource type="PackedScene" uid="uid://wbxl6n4glqqg" path="res://Scenes/Enemies/guldan.tscn" id="6_i3aeo"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iaow0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3aeo"]
 texture = ExtResource("3_i3aeo")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -132,7 +132,7 @@ texture_region_size = Vector2i(32, 32)
 7:8/0 = 0
 8:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpfo2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5wyu1"]
 texture = ExtResource("4_5wyu1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -262,7 +262,7 @@ texture_region_size = Vector2i(32, 32)
 7:8/0 = 0
 8:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yb21e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0c07c"]
 texture = ExtResource("5_0c07c")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -399,11 +399,11 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 2
 physics_layer_2/collision_layer = 4
 physics_layer_2/collision_mask = 4
-sources/1 = SubResource("TileSetAtlasSource_iaow0")
-sources/3 = SubResource("TileSetAtlasSource_qpfo2")
-sources/5 = SubResource("TileSetAtlasSource_yb21e")
+sources/1 = SubResource("TileSetAtlasSource_i3aeo")
+sources/3 = SubResource("TileSetAtlasSource_5wyu1")
+sources/5 = SubResource("TileSetAtlasSource_0c07c")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mie3u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cgwh"]
 texture = ExtResource("6_2cgwh")
 margins = Vector2i(9, 0)
 texture_region_size = Vector2i(32, 32)
@@ -577,7 +577,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_0qy5o"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_mie3u")
+sources/0 = SubResource("TileSetAtlasSource_2cgwh")
 
 [node name="Test" type="Node2D"]
 

@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 func _on_back_pressed() -> void:
 	invincibility_screen.visible = false
 	invincibility_hud.show()
+	Global.InvincibilityUnlocked = true
 	Global.InvincibilityAvailable = true
 	invincibility_info.visible = true
 	

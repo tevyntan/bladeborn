@@ -34,4 +34,9 @@ func _on_form_switch_body_exited(body: Node2D) -> void:
 func _on_next_scene_body_entered(_body: Node2D) -> void:
 	$NextScene.set_deferred("monitoring", false)
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	Global.PowerupCounter = 0
+	Global.DoubleJumpAvailable = false
+	Global.DoubleJumpUnlocked = false
+	Global.InvincibilityAvailable = false
+	Global.FuryAvailable = false
 	

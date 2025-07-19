@@ -18,4 +18,5 @@ func _process(_delta: float) -> void:
 func _on_back_pressed() -> void:
 	fury_screen.visible = false
 	fury_hud.show()
+	Global.FuryUnlocked = true
 	fury_info.visible = true

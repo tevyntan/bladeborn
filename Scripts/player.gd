@@ -17,6 +17,8 @@ var knockback_time: float = 0.0
 
 var max_health = 60
 var current_jump_count = 0
+var invincibility_activated = false
+var invincibility_blocked = false
 
 
 func _ready() -> void:
@@ -25,10 +27,10 @@ func _ready() -> void:
 	can_take_damage = true
 	isDead = false
 	
-	Global.DoubleJumpAvailable = false
-	Global.InvincibilityAvailable = false
-	Global.FuryAvailable = false
-	Global.PowerupCounter = 0
+	if Global.FuryUnlocked:
+		Global.FuryAvailable
+	if Global.InvincibilityUnlocked:
+		Global.InvincibilityAvailable
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
@@ -69,6 +71,7 @@ func _physics_process(delta: float) -> void:
 		handle_animations()
 		check_hitbox()
 		handle_fury()
+		handle_invincible()
 	move_and_slide()
 
 func handle_movement(delta):
@@ -163,6 +166,9 @@ func handle_knockback(direction, force, knockback_duration) -> void:
 func take_damage(damage):
 	if damage != 0:
 		if health > 0:
+			if invincibility_activated and not invincibility_blocked:
+				invincibility_blocked = true
+				damage = 0
 			health -= damage
 			Global.PlayerDmgCount +=1
 			
@@ -231,4 +237,10 @@ func handle_fury():
 		SPEED = 300;
 
 func handle_invincible():
-	pass
+	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable:
+		invincibility_activated = true
+		invincibility_blocked = false
+		await get_tree().create_timer(20).timeout
+		invincibility_activated = false
+		invincibility_blocked = false
+		

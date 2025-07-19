@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 func _on_back_pressed() -> void:
 	double_jump_screen.visible = false
 	double_jump_hud.show()
+	Global.DoubleJumpUnlocked = true
 	Global.DoubleJumpAvailable = true
 	double_jump_info.visible = true
 	

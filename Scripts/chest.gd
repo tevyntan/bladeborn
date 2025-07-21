@@ -32,5 +32,8 @@ func _on_body_entered(body: Node2D) -> void:
 			2:
 				fury_screen.show()
 				Global.PowerupCounter+=1
+				
+			_:
+				get_tree().paused = false
 		
 		

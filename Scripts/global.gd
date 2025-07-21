@@ -36,7 +36,10 @@ var GuldanDmgAmt: int
 var GuldanHealth: float
 
 #Powerups
-var PowerupCounter: int
-var DoubleJumpAvailable: bool
-var InvincibilityAvailable: bool
-var FuryAvailable: bool
+var PowerupCounter: int = 0
+var DoubleJumpUnlocked: bool = false
+var DoubleJumpAvailable: bool = false
+var InvincibilityUnlocked: bool = false
+var InvincibilityAvailable: bool = false
+var FuryUnlocked: bool = false
+var FuryAvailable: bool = false

@@ -9,10 +9,12 @@ func _ready() -> void:
 	cooldown.max_value = timer.wait_time
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
-		timer.start()
-		timer_bool = true
-		cooldown.value = 0 
+	if Global.FuryAvailable:
+		cooldown.value = 0
+		if Input.is_action_just_pressed("Fury"):
+			timer.start()
+			timer_bool = true
+			cooldown.value = 0 
 	handle_timer(timer_bool)
 
 func _on_timer_timeout() -> void:

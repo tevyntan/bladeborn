@@ -148,6 +148,8 @@ func check_hitbox():
 			damage = Global.MageSpiritDmgAmt 
 		if hitbox.get_parent() is Golem_enemy:
 			damage = Global.GolemDmgAmt 
+		if hitbox.get_parent() is Golem_spirit:
+			damage = Global.GolemSpiritDmgAmt 
 		if hitbox is Guldan_Spell:
 			damage = 10
 		if hitbox.get_parent() is Guldan_Enemy:

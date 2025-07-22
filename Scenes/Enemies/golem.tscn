@@ -341,6 +341,7 @@ size = Vector2(24, 6)
 size = Vector2(392, 150)
 
 [node name="Golem" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_s1ltc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -348,8 +349,8 @@ position = Vector2(7.62939e-06, -59)
 scale = Vector2(1.83594, 1.83594)
 sprite_frames = SubResource("SpriteFrames_73ihk")
 animation = &"Attack"
-frame = 6
-frame_progress = 0.569458
+frame = 14
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -30)
@@ -359,6 +360,7 @@ shape = SubResource("CapsuleShape2D_exbck")
 autostart = true
 
 [node name="GolemHitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemHitBox"]
@@ -373,6 +375,7 @@ position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_2y62m")
 
 [node name="GolemDmgArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemDmgArea"]
@@ -387,10 +390,11 @@ position = Vector2(-25, -3)
 shape = SubResource("RectangleShape2D_ib2a8")
 
 [node name="GolemTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemTrackingRadius"]
-position = Vector2(0, -38)
+position = Vector2(-42, -17)
 shape = SubResource("RectangleShape2D_s1ltc")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

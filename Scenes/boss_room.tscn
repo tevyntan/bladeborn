@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://ddbekispb6bbb"]
 
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="1_bnrw0"]
-[ext_resource type="Script" uid="uid://d0kkkn4v340h5" path="res://Scripts/boss_room.gd" id="1_l76pc"]
+[ext_resource type="Script" path="res://Scripts/boss_room.gd" id="1_l76pc"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="2_djbyv"]
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="3_dc5tq"]
 [ext_resource type="Texture2D" uid="uid://cerhiauuru0uo" path="res://Assets/Sprites/Map/Tileset/Tileset_crescent.png" id="4_ro8b5"]

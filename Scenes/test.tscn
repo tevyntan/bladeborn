@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="4_5wyu1"]
 [ext_resource type="Texture2D" uid="uid://cerhiauuru0uo" path="res://Assets/Sprites/Map/Tileset/Tileset_crescent.png" id="5_0c07c"]
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Map/Tileset/texture.png" id="6_2cgwh"]
-[ext_resource type="PackedScene" uid="uid://jygacllulbvb" path="res://Scenes/Enemies/golem_spirit.tscn" id="6_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/Enemies/satyr_enemy.tscn" id="6_i3aeo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3aeo"]
 texture = ExtResource("3_i3aeo")
@@ -394,10 +394,10 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_aees8"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 2
+physics_layer_0/collision_layer = 9
+physics_layer_1/collision_layer = 10
 physics_layer_1/collision_mask = 2
-physics_layer_2/collision_layer = 4
+physics_layer_2/collision_layer = 12
 physics_layer_2/collision_mask = 4
 sources/1 = SubResource("TileSetAtlasSource_i3aeo")
 sources/3 = SubResource("TileSetAtlasSource_5wyu1")
@@ -582,7 +582,7 @@ sources/0 = SubResource("TileSetAtlasSource_2cgwh")
 [node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_8od7v")]
-position = Vector2(-50, -1)
+position = Vector2(61, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -85)
@@ -598,5 +598,5 @@ position = Vector2(37, -298)
 tile_set = SubResource("TileSet_0qy5o")
 format = 2
 
-[node name="Golem_spirit" parent="." instance=ExtResource("6_i3aeo")]
-position = Vector2(367, 8)
+[node name="SatyrEnemy" parent="." instance=ExtResource("6_i3aeo")]
+position = Vector2(-280, -93)

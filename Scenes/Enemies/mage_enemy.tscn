@@ -247,7 +247,7 @@ size = Vector2(406, 166)
 
 [node name="Mage_enemy" type="CharacterBody2D"]
 collision_layer = 128
-collision_mask = 7
+collision_mask = 8
 script = ExtResource("1_utix6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -270,6 +270,7 @@ position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_ksqxx")
 
 [node name="MageDealDmgArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MageDealDmgArea"]
@@ -277,11 +278,20 @@ position = Vector2(73.5, -17)
 shape = SubResource("RectangleShape2D_bfqfb")
 
 [node name="MageTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MageTrackingRadius"]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_utix6")
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-17, -9)
+target_position = Vector2(0, 12)
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(16, -9)
+target_position = Vector2(0, 12)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

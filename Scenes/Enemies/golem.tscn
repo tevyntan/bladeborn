@@ -375,7 +375,6 @@ position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_2y62m")
 
 [node name="GolemDmgArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemDmgArea"]
@@ -396,6 +395,14 @@ collision_layer = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemTrackingRadius"]
 position = Vector2(-42, -17)
 shape = SubResource("RectangleShape2D_s1ltc")
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-46, -13)
+target_position = Vector2(0, 17)
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(49, -13)
+target_position = Vector2(0, 17)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

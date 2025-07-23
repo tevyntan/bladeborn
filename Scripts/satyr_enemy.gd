@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Satyr_enemy
 
-const speed = 10
+const speed = 30
 var dir: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -28,12 +28,18 @@ func move(delta):
 		isRoaming = true
 		if !taking_damage && isChasing && Global.PlayerAlive:
 			var dir_to_player = position.direction_to(player.position) * speed
-			velocity.x = dir_to_player.x
-			dir.x = (abs(velocity.x) / velocity.x)
+			
+			dir.x = sign(dir_to_player.x)
+			var ray = $RayCast2D_Left if dir.x < 0 else $RayCast2D_Right
+			if ray.is_colliding():
+				velocity.x = dir_to_player.x
+			else:
+				velocity.x = 0  # stop at edge
 		elif taking_damage:
 			var knockback_dir = position.direction_to(player.position) * - 50
 			velocity.x = knockback_dir.x
 		else:
+			fallprevention()
 			velocity += dir * speed * delta
 	elif isDead:
 		velocity.x = 0
@@ -50,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	
 	if !Global.PlayerAlive:
 		isChasing = false
-	
 	move(delta)
 	handle_animations()
 	
@@ -61,10 +66,11 @@ func handle_animations():
 	else:
 		if !isDead && !taking_damage:
 			animated_sprite_2d.play("Run")
-			if dir.x == - 1:
+			if velocity.x < 0:
 				animated_sprite_2d.flip_h = true
-			elif dir.x == 1:
+			elif velocity.x > 0:
 				animated_sprite_2d.flip_h = false
+
 		elif !isDead && taking_damage:
 			animated_sprite_2d.play("Hurt")
 		elif isDead && isRoaming:
@@ -109,6 +115,12 @@ func take_damage(damage):
 	if health <= 0:
 		health = 0
 		isDead = true  
+
+func fallprevention():
+	# Flip raycast direction to follow movement direction
+	var ray =  $RayCast2D_Left if dir.x < 0 else $RayCast2D_Right
+	if !ray.is_colliding():
+		velocity.x = 0
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

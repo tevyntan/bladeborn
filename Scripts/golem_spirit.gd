@@ -37,13 +37,18 @@ func move(delta):
 			velocity.x = 0
 		elif !taking_damage && isChasing && Global.PlayerAlive && !is_dealing_dmg:
 			var dir_to_player = position.direction_to(player.position) * speed
-			velocity.x = dir_to_player.x
-			dir.x = (abs(velocity.x) / velocity.x)
+			dir.x = sign(dir_to_player.x)
+			var ray = $RayCast2D_Left if dir.x < 0 else $RayCast2D_Right
+			if ray.is_colliding():
+				velocity.x = dir_to_player.x
+			else:
+				velocity.x = 0  # stop at edge
 		elif taking_damage:
 			pass
 			#var knockback_dir = position.direction_to(player.position) * - 20
 			#velocity.x = knockback_dir.x
 		else:
+			fallprevention()
 			velocity += dir * speed * delta
 			isRoaming = true
 	elif isDead:
@@ -76,9 +81,9 @@ func handle_animations(delta):
 		is_attacking = false
 		if !isDead && !taking_damage:
 			animated_sprite_2d.play("Run")
-			if dir.x == - 1:
+			if velocity.x < 0:
 				animated_sprite_2d.flip_h = true
-			elif dir.x == 1:
+			elif velocity.x > 0:
 				animated_sprite_2d.flip_h = false
 		elif !isDead && taking_damage:
 			animated_sprite_2d.play("Hurt")
@@ -134,6 +139,11 @@ func take_damage(damage):
 		health = 0
 		isDead = true  
 
+func fallprevention():
+	# Flip raycast direction to follow movement direction
+	var ray =  $RayCast2D_Left if dir.x < 0 else $RayCast2D_Right
+	if !ray.is_colliding():
+		velocity.x = 0
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "Death":

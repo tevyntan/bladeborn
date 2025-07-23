@@ -755,6 +755,7 @@ position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_tx1dd")
 
 [node name="DealDmgZone" type="Area2D" parent="."]
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DealDmgZone"]
 position = Vector2(50.25, -31)
@@ -781,3 +782,4 @@ autoplay = "new_animation_1"
 frame_progress = 0.530535
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="DealDmgZone" to="." method="_on_deal_dmg_zone_body_entered"]

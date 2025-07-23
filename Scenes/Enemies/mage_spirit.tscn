@@ -308,15 +308,14 @@ size = Vector2(124, 8)
 size = Vector2(404, 156)
 
 [node name="Mage_spirit" type="CharacterBody2D"]
-collision_mask = 7
+collision_layer = 128
+collision_mask = 8
 script = ExtResource("1_wtqxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_qut4g")
-animation = &"Aura"
-frame = 7
-frame_progress = 1.0
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -21)
@@ -341,11 +340,20 @@ position = Vector2(73, -17)
 shape = SubResource("RectangleShape2D_epi0j")
 
 [node name="MageSpiritTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MageSpiritTrackingRadius"]
 position = Vector2(0, -35)
 shape = SubResource("RectangleShape2D_1cwo1")
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-16, -9)
+target_position = Vector2(0, 11)
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(15, -9)
+target_position = Vector2(0, 11)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

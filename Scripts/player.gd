@@ -21,6 +21,7 @@ var invincibility_activated = false
 var invincibility_blocked = false
 
 var ImpactVFXScene = preload("res://Scenes/ImpactVFX.tscn")
+@onready var invincible_icon: Control = $"../CanvasLayer/HUD/Powerups/Invincible"
 
 func _ready() -> void:
 	Global.PlayerBody = self
@@ -32,6 +33,8 @@ func _ready() -> void:
 		Global.FuryAvailable
 	if Global.InvincibilityUnlocked:
 		Global.InvincibilityAvailable
+	invincibility_activated = false
+	invincibility_blocked = false
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon

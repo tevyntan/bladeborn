@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-class_name Golem_enemy
+class_name Golem_spirit
 
 const speed = 10
 var dir: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
 
 var isChasing: bool
 var player: CharacterBody2D
@@ -28,9 +27,9 @@ func move(delta):
 	
 	#flip attack hitbox to side its facing
 	if velocity.x < 0:
-		$GolemDealDmgArea.scale.x = -1
+		$GolemSpiritDealDmgArea.scale.x = -1
 	elif velocity.x > 0:
-		$GolemDealDmgArea.scale.x = 1
+		$GolemSpiritDealDmgArea.scale.x = 1
 		
 	
 	if !isDead:
@@ -63,8 +62,8 @@ func move(delta):
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
-	Global.GolemDmgAmt = dmg_to_deal
-	Global.GolemDmgZone = $GolemDealDmgArea
+	Global.GolemSpiritDmgAmt = dmg_to_deal
+	Global.GolemSpiritDmgZone = $GolemSpiritDealDmgArea
 	
 	if !Global.PlayerAlive:
 		isChasing = false
@@ -92,9 +91,8 @@ func handle_animations(delta):
 			isRoaming = false
 			animated_sprite_2d.play("Death")
 			$CollisionShape2D.queue_free()
-			$GolemHitBox.queue_free()
-			$GolemDealDmgArea/CollisionShape2D.disabled = true
-		
+			$GolemSpiritHitBox.queue_free()
+			$GolemSpiritDealDmgArea/CollisionShape2D.disabled = true
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([1.0, 1.5, 2.0])
@@ -107,28 +105,28 @@ func choose(array):
 	return array.front()
 
 
-func _on_golem_hit_box_area_entered(area: Area2D) -> void:
+
+func _on_golem_spirit_hit_box_area_entered(area: Area2D) -> void:
 	if area == Global.PlayerDmgZone:
 		var damage = Global.PlayerDmgAmt
 		take_damage(damage)
-		
 
 
-func _on_golem_deal_dmg_area_body_entered(body: Node2D) -> void:
+func _on_golem_spirit_deal_dmg_area_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		is_dealing_dmg = true
 		await get_tree().create_timer(0.6).timeout 
 		is_attacking = true
 
+
 func dmg_animate(delta):
-	$GolemDmgArea.collision_layer = 1
-	$GolemDmgArea2.collision_layer = 1
-	$GolemDmgArea/CollisionShape2D.position.x += 1.9
-	$GolemDmgArea2/CollisionShape2D.position.x -= 2.1
-	
+	$GolemSpiritDmgArea.collision_layer = 1
+	$GolemSpiritDmgArea2.collision_layer = 1
+	$GolemSpiritDmgArea/CollisionShape2D.position.x += 1.9
+	$GolemSpiritDmgArea2/CollisionShape2D.position.x -= 2.1
 	
 
-func _on_golem_tracking_radius_body_entered(body: Node2D) -> void:
+func _on_golem_spirit_tracking_radius_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
 		isChasing = true
 	else:
@@ -156,8 +154,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "Attack":
 		is_dealing_dmg = false
 		is_attacking = false
-		$GolemDmgArea.collision_layer = 8
-		$GolemDmgArea2.collision_layer = 8
-		$GolemDmgArea/CollisionShape2D.position.x = 31.0
-		$GolemDmgArea2/CollisionShape2D.position.x = -25.0
-		
+		$GolemSpiritDmgArea.collision_layer = 8
+		$GolemSpiritDmgArea2.collision_layer = 8
+		$GolemSpiritDmgArea/CollisionShape2D.position.x = 31.0
+		$GolemSpiritDmgArea2/CollisionShape2D.position.x = -25.0

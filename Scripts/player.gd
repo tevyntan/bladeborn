@@ -20,6 +20,7 @@ var current_jump_count = 0
 var invincibility_activated = false
 var invincibility_blocked = false
 
+var ImpactVFXScene = preload("res://Scenes/ImpactVFX.tscn")
 
 func _ready() -> void:
 	Global.PlayerBody = self
@@ -148,6 +149,8 @@ func check_hitbox():
 			damage = Global.MageSpiritDmgAmt 
 		if hitbox.get_parent() is Golem_enemy:
 			damage = Global.GolemDmgAmt 
+		if hitbox.get_parent() is Golem_spirit:
+			damage = Global.GolemSpiritDmgAmt 
 		if hitbox is Guldan_Spell:
 			damage = 10
 		if hitbox.get_parent() is Guldan_Enemy:
@@ -212,6 +215,12 @@ func set_damage():
 	var dmg_amt: int = 10
 	Global.PlayerDmgAmt = dmg_amt
 
+#Shows impact vfx when player hits enemy
+func show_impact_vfx(position: Vector2):
+	var impact = ImpactVFXScene.instantiate()
+	get_tree().current_scene.add_child(impact)
+	impact.global_position = position
+
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation.ends_with("Attack"):
 		cancel_attack()
@@ -236,6 +245,9 @@ func handle_fury():
 		Global.PlayerDmgAmt = Global.PlayerDmgAmt / 2
 		SPEED = 300;
 
+
+
+
 func handle_invincible():
 	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable:
 		invincibility_activated = true
@@ -244,3 +256,7 @@ func handle_invincible():
 		invincibility_activated = false
 		invincibility_blocked = false
 		
+
+
+func _on_deal_dmg_zone_body_entered(body: Node2D) -> void:
+	show_impact_vfx(body.global_position)

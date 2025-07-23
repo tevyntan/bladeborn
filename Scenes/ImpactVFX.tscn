@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://duon2cf6amhmb"]
+
+[ext_resource type="Texture2D" uid="uid://c7thhff8u4kx3" path="res://Assets/Sprites/Player/Blood Splat.png" id="1_ofsi7"]
+[ext_resource type="Script" uid="uid://d4g7j64yatikp" path="res://Scripts/impact_vfx.gd" id="2_n6d3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6d3p"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt180"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tuca"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nequ"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6l1a"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d8o6"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ds7r"]
+atlas = ExtResource("1_ofsi7")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyhjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6d3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt180")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tuca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nequ")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6l1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d8o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ds7r")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 10.0
+}]
+
+[node name="ImpactVFX" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yyhjq")
+animation = &"impact"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("2_n6d3p")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

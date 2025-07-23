@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://wbxl6n4glqqg"]
+[gd_scene load_steps=100 format=3 uid="uid://wbxl6n4glqqg"]
 
 [ext_resource type="Script" uid="uid://7yk5eobj4vy4" path="res://Scripts/guldan.gd" id="1_36bvg"]
 [ext_resource type="Texture2D" uid="uid://cmy5dashydud6" path="res://Assets/Sprites/Enemy/Guldan/Spritesheet-Sheet.png" id="2_36bvg"]
@@ -111,6 +111,46 @@ region = Rect2(1248, 279, 208, 93)
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqm0u"]
 atlas = ExtResource("2_36bvg")
 region = Rect2(832, 279, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvhkd"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(0, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikyiq"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(208, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31wgm"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(416, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhkbm"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(624, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onyw0"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(832, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isqq3"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(1040, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbp0h"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(1248, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdmmm"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(1456, 186, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsb5w"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(0, 279, 208, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s15ku"]
+atlas = ExtResource("2_36bvg")
+region = Rect2(208, 279, 208, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nf56d"]
 atlas = ExtResource("2_36bvg")
@@ -424,6 +464,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bvhkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikyiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31wgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhkbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onyw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isqq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbp0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdmmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsb5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s15ku")
+}],
+"loop": false,
+"name": &"Phys.Melee",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nf56d")
 }, {
 "duration": 1.0,
@@ -626,6 +701,9 @@ size = Vector2(646, 198)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoi4c"]
 size = Vector2(998, 310)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5joyr"]
+size = Vector2(158, 97)
+
 [node name="Guldan" type="CharacterBody2D"]
 collision_layer = 128
 collision_mask = 8
@@ -635,7 +713,7 @@ script = ExtResource("1_36bvg")
 position = Vector2(1, -91)
 scale = Vector2(1.97312, 1.97312)
 sprite_frames = SubResource("SpriteFrames_gfw1k")
-animation = &"Phys.Death"
+animation = &"Spirit.Cast"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -53)
@@ -645,6 +723,7 @@ shape = SubResource("CapsuleShape2D_t3k7j")
 autostart = true
 
 [node name="GuldanHitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuldanHitBox"]
@@ -652,6 +731,7 @@ position = Vector2(0, -53)
 shape = SubResource("CapsuleShape2D_36bvg")
 
 [node name="GuldanDealDmgArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuldanDealDmgArea"]
@@ -660,14 +740,23 @@ position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_i6hw3")
 
 [node name="GuldanTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuldanTrackingRadius"]
 position = Vector2(1, -93)
 shape = SubResource("RectangleShape2D_aoi4c")
 
+[node name="GuldanMeleeArea" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuldanMeleeArea"]
+position = Vector2(-117, -57.5)
+shape = SubResource("RectangleShape2D_5joyr")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="GuldanHitBox" to="." method="_on_guldan_hit_box_area_entered"]
 [connection signal="body_entered" from="GuldanDealDmgArea" to="." method="_on_guldan_deal_dmg_area_body_entered"]
 [connection signal="body_entered" from="GuldanTrackingRadius" to="." method="_on_guldan_tracking_radius_body_entered"]
+[connection signal="body_entered" from="GuldanMeleeArea" to="." method="_on_guldan_melee_area_body_entered"]

@@ -291,6 +291,7 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_glh50")
 
@@ -298,23 +299,36 @@ shape = SubResource("CircleShape2D_glh50")
 autostart = true
 
 [node name="SatyrHitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrHitBox"]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_xv1wj")
 
 [node name="SatyrDealDmgArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrDealDmgArea"]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_f0mgi")
 
 [node name="SatyrTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrTrackingRadius"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xv1wj")
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(11, -8)
+target_position = Vector2(0, 12)
+collision_mask = 7
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-8, -8)
+target_position = Vector2(0, 12)
+collision_mask = 7
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -346,9 +346,9 @@ script = ExtResource("1_8o2vd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -8)
 sprite_frames = SubResource("SpriteFrames_y657v")
-animation = &"Attack"
-frame = 5
-frame_progress = 1.0
+animation = &"Run"
+frame = 6
+frame_progress = 0.130812
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -358,6 +358,7 @@ shape = SubResource("CircleShape2D_i7bfw")
 autostart = true
 
 [node name="SatyrSpiritHitBox" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrSpiritHitBox"]
@@ -365,17 +366,29 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_hc8b2")
 
 [node name="SatyrSpiritDealDmgArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrSpiritDealDmgArea"]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_84m1e")
 
 [node name="SatyrSpiritTrackingRadius" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SatyrSpiritTrackingRadius"]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_g1kdp")
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-10, -8)
+target_position = Vector2(0, 12)
+collision_mask = 7
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(14, -8)
+target_position = Vector2(0, 12)
+collision_mask = 7
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

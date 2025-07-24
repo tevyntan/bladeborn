@@ -28,3 +28,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	damage_bar.value = Global.GuldanHealth
+
+
+func _on_save_scene_body_entered(body: Node2D) -> void:
+	Global.LoadScene = "res://Scenes/boss_room.tscn"

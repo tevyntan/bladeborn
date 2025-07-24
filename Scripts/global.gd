@@ -1,5 +1,8 @@
 extends Node
 
+#Menu
+var LoadScene: String
+
 #Player
 var PlayerBody = CharacterBody2D
 var PlayerDmgZone: Area2D

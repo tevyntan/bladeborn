@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -350.0
 var isAttacking = false
 var moon = true
 
-var health = 60
+var health = 100
 var can_take_damage: bool
 var isTakingDmg: bool = false
 var isDead: bool
@@ -47,12 +47,14 @@ func _physics_process(delta: float) -> void:
 			if moon == false:
 				moon = true
 				$DealDmgZone.collision_layer = 1
+				$DealDmgZone.collision_mask = 1
 				set_collision_mask_value(2, true) #swap mask to interact with diff platforms
 				set_collision_mask_value(3, false)
 
 			else:
 				moon = false
 				$DealDmgZone.collision_layer = 2
+				$DealDmgZone.collision_mask = 16
 				set_collision_mask_value(2, false) #swap mask to interact with diff platforms
 				set_collision_mask_value(3, true)
 		
@@ -262,4 +264,9 @@ func handle_invincible():
 
 
 func _on_deal_dmg_zone_body_entered(body: Node2D) -> void:
-	show_impact_vfx(body.global_position)
+	var impact_pos = body.global_position
+	if not body is Satyr_enemy and not body is Satyr_spirit:
+		impact_pos.y -= 20
+	if body is Guldan_Enemy:
+		impact_pos.y -= 40
+	show_impact_vfx(impact_pos)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvrwqqidrjmk4"
-path="res://.godot/imported/Holy Light Aura.png-d48f5e11c8353dd757cade6d10a017dd.ctex"
+uid="uid://cgnmxwj8j8r6q"
+path="res://.godot/imported/StreetLamp.png-cad239d9a913129ada00a40272095d68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/Holy Light Aura.png"
-dest_files=["res://.godot/imported/Holy Light Aura.png-d48f5e11c8353dd757cade6d10a017dd.ctex"]
+source_file="res://Assets/Sprites/Map/StreetLamp.png"
+dest_files=["res://.godot/imported/StreetLamp.png-cad239d9a913129ada00a40272095d68.ctex"]
 
 [params]
 

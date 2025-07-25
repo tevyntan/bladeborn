@@ -73,26 +73,29 @@ func _physics_process(delta: float) -> void:
 	
 
 func handle_animations(delta):
-	if !isDead && is_dealing_dmg:
-		animated_sprite_2d.play("Attack")
-		if is_attacking:
-			dmg_animate(delta)
+	if Global.PlayerFullMoon && !isDead:
+		animated_sprite_2d.play("Aura")
 	else:
-		is_attacking = false
-		if !isDead && !taking_damage:
-			animated_sprite_2d.play("Run")
-			if velocity.x < 0:
-				animated_sprite_2d.flip_h = true
-			elif velocity.x > 0:
-				animated_sprite_2d.flip_h = false
-		elif !isDead && taking_damage:
-			animated_sprite_2d.play("Hurt")
-		elif isDead && isRoaming:
-			isRoaming = false
-			animated_sprite_2d.play("Death")
-			$CollisionShape2D.queue_free()
-			$GolemSpiritHitBox.queue_free()
-			$GolemSpiritDealDmgArea/CollisionShape2D.disabled = true
+		if !isDead && is_dealing_dmg:
+			animated_sprite_2d.play("Attack")
+			if is_attacking:
+				dmg_animate(delta)
+		else:
+			is_attacking = false
+			if !isDead && !taking_damage:
+				animated_sprite_2d.play("Run")
+				if velocity.x < 0:
+					animated_sprite_2d.flip_h = true
+				elif velocity.x > 0:
+					animated_sprite_2d.flip_h = false
+			elif !isDead && taking_damage:
+				animated_sprite_2d.play("Hurt")
+			elif isDead && isRoaming:
+				isRoaming = false
+				animated_sprite_2d.play("Death")
+				$CollisionShape2D.queue_free()
+				$GolemSpiritHitBox.queue_free()
+				$GolemSpiritDealDmgArea/CollisionShape2D.disabled = true
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([1.0, 1.5, 2.0])

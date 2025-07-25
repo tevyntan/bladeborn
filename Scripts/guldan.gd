@@ -87,6 +87,11 @@ func _physics_process(delta: float) -> void:
 		$GuldanMeleeArea/CollisionShape2D.disabled = false
 		meleeactive = true
 	
+	#change collision layer based on form
+	if form:
+		$".".collision_layer = 1
+	else:
+		$".".collision_layer = 16
 	move(delta)
 	handle_animations()
 	

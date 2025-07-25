@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dgnx2agiokrct"]
+[gd_scene load_steps=27 format=3 uid="uid://dgnx2agiokrct"]
 
 [ext_resource type="Script" uid="uid://bc048w13xesrq" path="res://Scripts/tutorial_map.gd" id="1_dtagc"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="1_tqwtp"]
@@ -600,9 +600,6 @@ size = Vector2(864, 336)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1gt3"]
 size = Vector2(20, 59)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo10q"]
-size = Vector2(24, 20)
-
 [node name="TutorialMap" type="Node2D"]
 script = ExtResource("1_dtagc")
 
@@ -771,16 +768,8 @@ position = Vector2(1475, 298)
 [node name="satyr_spirit" parent="Enemies" instance=ExtResource("8_fsic1")]
 position = Vector2(3017, 234)
 
-[node name="stage1" type="Area2D" parent="."]
-position = Vector2(383, 529)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stage1"]
-position = Vector2(22, 0)
-shape = SubResource("RectangleShape2D_mo10q")
-
 [connection signal="body_entered" from="Controls/ATTACK" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="Controls/ATTACK" to="." method="_on_attack_body_exited"]
 [connection signal="body_entered" from="Controls/FormSwitch" to="." method="_on_form_switch_body_entered"]
 [connection signal="body_exited" from="Controls/FormSwitch" to="." method="_on_form_switch_body_exited"]
 [connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]
-[connection signal="body_entered" from="stage1" to="." method="_on_stage_1_body_entered"]

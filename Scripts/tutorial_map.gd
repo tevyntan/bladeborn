@@ -4,7 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Player.health = 60
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,6 +13,9 @@ func _process(_delta: float) -> void:
 		form.text = "Full Moon"
 	else: 
 		form.text = "Crescent Moon"
+	if Global.PlayerHeath < 40:
+		$Player.health = 60
+
 #Show health points
 func _on_attack_body_entered(body: Node2D) -> void:
 	if body == Global.PlayerBody:
@@ -40,7 +43,3 @@ func _on_next_scene_body_entered(_body: Node2D) -> void:
 	Global.InvincibilityAvailable = false
 	Global.FuryAvailable = false
 	
-
-
-func _on_stage_1_body_entered(body: Node2D) -> void:
-	Global.LoadScene = "res://Scenes/Stages/stage_1.tscn"

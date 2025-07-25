@@ -92,7 +92,6 @@ func _physics_process(delta: float) -> void:
 		$".".collision_layer = 1
 	else:
 		$".".collision_layer = 16
-	print($".".collision_layer)
 	move(delta)
 	handle_animations()
 	

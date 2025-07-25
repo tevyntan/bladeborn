@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -350.0
 var isAttacking = false
 var moon = true
 
-var health = 60
+var health = 100
 var can_take_damage: bool
 var isTakingDmg: bool = false
 var isDead: bool

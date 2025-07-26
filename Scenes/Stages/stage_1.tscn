@@ -647,7 +647,6 @@ position = Vector2(19, 13)
 shape = SubResource("RectangleShape2D_p3pig")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("8_lkidv")]
 

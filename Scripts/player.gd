@@ -15,7 +15,7 @@ var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
 
-var max_health = 60
+var max_health = 100
 var current_jump_count = 0
 var invincibility_activated = false
 var invincibility_blocked = false
@@ -29,15 +29,14 @@ func _ready() -> void:
 	can_take_damage = true
 	isDead = false
 	
-	if Global.FuryUnlocked:
+	if Global.FuryUnlocked && Global.FuryMeterFull:
 		Global.FuryAvailable = true
 	if Global.InvincibilityUnlocked:
 		Global.InvincibilityAvailable = true
 	invincibility_activated = false
 	invincibility_blocked = false
 	
-	print(Global.FuryUnlocked, Global.FuryAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable)
-
+	print(Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.FuryUnlocked, Global.FuryAvailable)
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
@@ -180,7 +179,6 @@ func take_damage(damage):
 				invincibility_blocked = true
 				damage = 0
 			health -= damage
-			Global.PlayerDmgCount +=1
 			
 			if health <= 0:
 				health = 0
@@ -227,6 +225,7 @@ func show_impact_vfx(position: Vector2):
 	var impact = ImpactVFXScene.instantiate()
 	get_tree().current_scene.add_child(impact)
 	impact.global_position = position
+	Global.PlayerDmgCount +=1
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation.ends_with("Attack"):

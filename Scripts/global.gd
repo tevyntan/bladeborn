@@ -44,6 +44,7 @@ var GuldanHealth: float
 
 #Powerups
 var PowerupCounter: int = 0
+var FuryMeterFull: bool 
 var DoubleJumpUnlocked: bool = false
 var DoubleJumpAvailable: bool = false
 var InvincibilityUnlocked: bool = false

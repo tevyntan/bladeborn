@@ -30,11 +30,13 @@ func _ready() -> void:
 	isDead = false
 	
 	if Global.FuryUnlocked:
-		Global.FuryAvailable
+		Global.FuryAvailable = true
 	if Global.InvincibilityUnlocked:
-		Global.InvincibilityAvailable
+		Global.InvincibilityAvailable = true
 	invincibility_activated = false
 	invincibility_blocked = false
+	
+	print(Global.FuryUnlocked, Global.FuryAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable)
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cq5idyhd3slma"]
+[gd_scene load_steps=33 format=3 uid="uid://cq5idyhd3slma"]
 
 [ext_resource type="Script" uid="uid://ph6jah5710eh" path="res://Scripts/stage_1.gd" id="1_6ly68"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="1_e760n"]
@@ -13,10 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="11_dhox2"]
 [ext_resource type="PackedScene" uid="uid://4w46m1jknhpg" path="res://Scenes/Powerups/double_jump_info.tscn" id="12_elwkq"]
 [ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="13_a3a66"]
+[ext_resource type="PackedScene" uid="uid://bt4k5mqt232a0" path="res://Scenes/Powerups/invicibility_screen.tscn" id="14_tecur"]
 [ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/Enemies/satyr_enemy.tscn" id="15_elwkq"]
+[ext_resource type="PackedScene" uid="uid://1r5cup3bpks3" path="res://Scenes/Powerups/invincibility_info.tscn" id="15_v41ih"]
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_a3a66"]
+[ext_resource type="PackedScene" uid="uid://d1kcalvxb0lij" path="res://Scenes/Powerups/fury_screen.tscn" id="16_igpd1"]
 [ext_resource type="Texture2D" uid="uid://cgnmxwj8j8r6q" path="res://Assets/Sprites/Map/StreetLamp.png" id="17_a3a66"]
 [ext_resource type="PackedScene" uid="uid://bopivsrjmuin6" path="res://Scenes/Enemies/golem.tscn" id="17_elwkq"]
+[ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="17_frccm"]
+[ext_resource type="PackedScene" uid="uid://utir4uxsge0w" path="res://Scenes/killzone.tscn" id="22_v41ih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3a66"]
 texture = ExtResource("1_e760n")
@@ -599,6 +604,8 @@ size = Vector2(20, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3a66"]
 size = Vector2(35.5, 324)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_igpd1"]
+
 [node name="Stage_1" type="Node2D"]
 script = ExtResource("1_6ly68")
 
@@ -661,6 +668,18 @@ visible = false
 [node name="DoubleJumpInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("12_elwkq")]
 visible = false
 
+[node name="InvincibilityScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("14_tecur")]
+visible = false
+
+[node name="InvincibilityInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("15_v41ih")]
+visible = false
+
+[node name="FuryScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("16_igpd1")]
+visible = false
+
+[node name="FuryInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("17_frccm")]
+visible = false
+
 [node name="hplabel" type="Label" parent="CanvasLayer"]
 visible = false
 offset_left = 203.0
@@ -712,6 +731,12 @@ position = Vector2(152, 69)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stagelabelling"]
 position = Vector2(232, 392)
 shape = SubResource("RectangleShape2D_a3a66")
+
+[node name="Killzone" parent="." instance=ExtResource("22_v41ih")]
+position = Vector2(81, 712)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_igpd1")
 
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]
 [connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]

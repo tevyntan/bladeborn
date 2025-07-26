@@ -573,7 +573,6 @@ radius = 14.0
 height = 48.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h4iuc"]
-load_path = "res://.godot/imported/Holy Light Aura.png-d48f5e11c8353dd757cade6d10a017dd.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qavoy"]
 atlas = SubResource("CompressedTexture2D_h4iuc")
@@ -604,7 +603,6 @@ atlas = SubResource("CompressedTexture2D_h4iuc")
 region = Rect2(96, 288, 96, 96)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fd4e3"]
-load_path = "res://.godot/imported/Sakuras.png-36f316f497c9004d6d603677a4e23a56.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o736f"]
 atlas = SubResource("CompressedTexture2D_fd4e3")

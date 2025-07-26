@@ -75,6 +75,12 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Jump") and current_jump_count < max_jump_count:
 			velocity.y = JUMP_VELOCITY
 			current_jump_count += 1
+		
+		#Toggle shield animations
+		if invincibility_activated and not invincibility_blocked:
+			$Shield.visible = true
+		else:
+			$Shield.visible = false
 
 		handle_movement(delta)
 		handle_animations()
@@ -163,7 +169,8 @@ func check_hitbox():
 		if hitbox.get_parent() is Guldan_Enemy:
 			damage = Global.GuldanDmgAmt
 		
-		if can_take_damage:
+		
+		if can_take_damage and damage != 0:
 			take_damage(damage)
 			var knockback_direction = (self.global_position - hitbox.global_position).normalized()
 			handle_knockback(knockback_direction, 1.00, 0.20)
@@ -218,7 +225,6 @@ func cancel_attack():
 
 #Set Attack Dmg Amount
 func set_damage():
-	var dmg_amt: int = 10
 	Global.PlayerDmgAmt = dmg_amt
 
 #Shows impact vfx when player hits enemy
@@ -246,6 +252,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func handle_fury():
 	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
+		$Fury.visible = true
 		dmg_amt *= 2
 		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 400;
@@ -253,10 +260,11 @@ func handle_fury():
 		dmg_amt = dmg_amt / 2
 		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 300;
+		$Fury.visible = false
 
 
 func handle_invincible():
-	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable:
+	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable and not invincibility_activated:
 		invincibility_activated = true
 		invincibility_blocked = false
 		await get_tree().create_timer(20).timeout

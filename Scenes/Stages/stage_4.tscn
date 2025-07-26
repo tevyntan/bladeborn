@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bm5gdidunb77p"]
+[gd_scene load_steps=31 format=3 uid="uid://bm5gdidunb77p"]
 
 [ext_resource type="Script" uid="uid://1sfugsi4n1bo" path="res://Scripts/stage_4.gd" id="1_0yfdq"]
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="2_4v44b"]
@@ -13,9 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bdq1bldgvie16" path="res://Scenes/Powerups/double_jump_screen.tscn" id="11_54mll"]
 [ext_resource type="PackedScene" uid="uid://4w46m1jknhpg" path="res://Scenes/Powerups/double_jump_info.tscn" id="12_om3mu"]
 [ext_resource type="FontFile" uid="uid://re0u4j2ogqv1" path="res://Assets/Fonts/PixelOperator8.ttf" id="13_7j828"]
+[ext_resource type="PackedScene" uid="uid://bt4k5mqt232a0" path="res://Scenes/Powerups/invicibility_screen.tscn" id="14_knqcm"]
 [ext_resource type="PackedScene" uid="uid://utir4uxsge0w" path="res://Scenes/killzone.tscn" id="14_qpkmd"]
+[ext_resource type="PackedScene" uid="uid://1r5cup3bpks3" path="res://Scenes/Powerups/invincibility_info.tscn" id="15_a1qfg"]
 [ext_resource type="Texture2D" uid="uid://cgnmxwj8j8r6q" path="res://Assets/Sprites/Map/StreetLamp.png" id="15_eduu3"]
+[ext_resource type="PackedScene" uid="uid://d1kcalvxb0lij" path="res://Scenes/Powerups/fury_screen.tscn" id="16_67rbt"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="16_nyhxi"]
+[ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="17_5ykpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i84pj"]
 texture = ExtResource("3_4d3ad")
@@ -661,6 +665,18 @@ visible = false
 visible = false
 
 [node name="DoubleJumpInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("12_om3mu")]
+visible = false
+
+[node name="InvincibilityScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("14_knqcm")]
+visible = false
+
+[node name="InvincibilityInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("15_a1qfg")]
+visible = false
+
+[node name="FuryScreen" parent="CanvasLayer/PowerupScenes" instance=ExtResource("16_67rbt")]
+visible = false
+
+[node name="FuryInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("17_5ykpn")]
 visible = false
 
 [node name="hplabel" type="Label" parent="CanvasLayer"]

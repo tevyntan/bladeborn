@@ -14,8 +14,9 @@ var isTakingDmg: bool = false
 var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
+var dmg_amt: int = 10
 
-var max_health = 60
+var max_health = 100
 var current_jump_count = 0
 var invincibility_activated = false
 var invincibility_blocked = false
@@ -29,12 +30,14 @@ func _ready() -> void:
 	can_take_damage = true
 	isDead = false
 	
-	if Global.FuryUnlocked:
-		Global.FuryAvailable
+	if Global.FuryUnlocked && Global.FuryMeterFull:
+		Global.FuryAvailable = true
 	if Global.InvincibilityUnlocked:
-		Global.InvincibilityAvailable
+		Global.InvincibilityAvailable = true
 	invincibility_activated = false
 	invincibility_blocked = false
+	
+	print(Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.FuryUnlocked, Global.FuryAvailable)
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
@@ -132,7 +135,6 @@ func handle_animations():
 			isAttacking = true
 			set_damage()
 			toggle_attack()
-			
 
 
 #HitBox checker
@@ -178,7 +180,6 @@ func take_damage(damage):
 				invincibility_blocked = true
 				damage = 0
 			health -= damage
-			Global.PlayerDmgCount +=1
 			
 			if health <= 0:
 				health = 0
@@ -225,6 +226,7 @@ func show_impact_vfx(position: Vector2):
 	var impact = ImpactVFXScene.instantiate()
 	get_tree().current_scene.add_child(impact)
 	impact.global_position = position
+	Global.PlayerDmgCount +=1
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation.ends_with("Attack"):
@@ -244,13 +246,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func handle_fury():
 	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
-		Global.PlayerDmgAmt *= 2
+		dmg_amt *= 2
+		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 400;
 		await get_tree().create_timer(10).timeout
-		Global.PlayerDmgAmt = Global.PlayerDmgAmt / 2
+		dmg_amt = dmg_amt / 2
+		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 300;
-
-
 
 
 func handle_invincible():

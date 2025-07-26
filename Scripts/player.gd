@@ -165,7 +165,7 @@ func check_hitbox():
 		if hitbox.get_parent() is Golem_spirit:
 			damage = Global.GolemSpiritDmgAmt 
 		if hitbox is Guldan_Spell:
-			damage = 10
+			damage = 20
 		if hitbox.get_parent() is Guldan_Enemy:
 			damage = Global.GuldanDmgAmt
 		
@@ -232,7 +232,8 @@ func show_impact_vfx(position: Vector2):
 	var impact = ImpactVFXScene.instantiate()
 	get_tree().current_scene.add_child(impact)
 	impact.global_position = position
-	Global.PlayerDmgCount +=1
+	if not $Fury.visible:
+		Global.PlayerDmgCount +=1
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation.ends_with("Attack"):
@@ -251,7 +252,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		
 
 func handle_fury():
-	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
+	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable and Global.FuryMeterFull:
 		$Fury.visible = true
 		dmg_amt *= 2
 		Global.PlayerDmgAmt = dmg_amt

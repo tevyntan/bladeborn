@@ -11,7 +11,7 @@ var dir: Vector2
 var isChasing: bool
 var player: CharacterBody2D
 
-var health = 30
+var health = 60
 var isDead: bool = false 
 var taking_damage = false
 var isRoaming: bool

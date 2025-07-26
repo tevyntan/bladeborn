@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.FuryAvailable:
 		cooldown.value = 0
-		if Input.is_action_just_pressed("Fury"):
+		if Input.is_action_just_pressed("Fury") and Global.FuryMeterFull:
 			timer.start()
 			timer_bool = true
 			cooldown.value = 0 

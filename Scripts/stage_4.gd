@@ -3,8 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	Global.PowerupCounter = 2
+	Global.DoubleJumpUnlocked = true
+	Global.DoubleJumpAvailable = true
+	Global.InvincibilityUnlocked = true
+	Global.InvincibilityAvailable = true
+	Global.FuryUnlocked = false
+	Global.FuryAvailable = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

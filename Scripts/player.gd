@@ -14,6 +14,7 @@ var isTakingDmg: bool = false
 var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
+var dmg_amt: int = 10
 
 var max_health = 100
 var current_jump_count = 0
@@ -37,6 +38,7 @@ func _ready() -> void:
 	invincibility_blocked = false
 	
 	print(Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.FuryUnlocked, Global.FuryAvailable)
+
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon
 	Global.PlayerDmgZone = deal_dmg_zone
@@ -133,7 +135,6 @@ func handle_animations():
 			isAttacking = true
 			set_damage()
 			toggle_attack()
-			
 
 
 #HitBox checker
@@ -245,13 +246,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func handle_fury():
 	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable:
-		Global.PlayerDmgAmt *= 2
+		dmg_amt *= 2
+		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 400;
 		await get_tree().create_timer(10).timeout
-		Global.PlayerDmgAmt = Global.PlayerDmgAmt / 2
+		dmg_amt = dmg_amt / 2
+		Global.PlayerDmgAmt = dmg_amt
 		SPEED = 300;
-
-
 
 
 func handle_invincible():

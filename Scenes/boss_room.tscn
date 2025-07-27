@@ -652,6 +652,25 @@ offset_bottom = -59.0
 theme_override_fonts/font = ExtResource("13_xmh30")
 text = "BOSS LEVEL"
 
+[node name="SavedLabel" type="Label" parent="Player/Camera2D"]
+visible = false
+offset_left = -93.0
+offset_top = -104.0
+offset_right = 97.0
+offset_bottom = -81.0
+theme_override_fonts/font = ExtResource("13_xmh30")
+text = "PROGRESS SAVED"
+
+[node name="Defeated" type="Label" parent="Player/Camera2D"]
+visible = false
+offset_left = -314.0
+offset_top = -57.0
+offset_right = 334.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("13_xmh30")
+theme_override_font_sizes/font_size = 32
+text = "Gul'dan HAS BEEN DEFEATED"
+
 [node name="BossUI" type="CanvasLayer" parent="."]
 
 [node name="BossBar" type="ProgressBar" parent="BossUI"]
@@ -668,6 +687,7 @@ offset_bottom = 25.8
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_dc5tq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_djbyv")
+max_value = 200.0
 value = 60.0
 show_percentage = false
 
@@ -681,6 +701,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ro8b5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mx74l")
+max_value = 200.0
 value = 80.0
 show_percentage = false
 
@@ -696,13 +717,28 @@ offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("13_xmh30")
 text = "Gul'dan"
 
+[node name="StreetLamp" type="Sprite2D" parent="."]
+position = Vector2(12, 348)
+scale = Vector2(1.6875, 1.64583)
+texture = ExtResource("19_wmg7a")
+
+[node name="SaveScene" type="Area2D" parent="."]
+position = Vector2(113, 336)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveScene"]
+position = Vector2(19, 13)
+shape = SubResource("RectangleShape2D_wmg7a")
+
+[node name="Stagelabelling" type="Area2D" parent="."]
+position = Vector2(152, 69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stagelabelling"]
+position = Vector2(199, 346)
+shape = SubResource("RectangleShape2D_n5lmp")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("10_xmh30")]
-offset_left = -85.432
-offset_top = -111.736
-offset_right = -85.432
-offset_bottom = -111.736
 
 [node name="PauseMenu" type="Node" parent="CanvasLayer"]
 
@@ -733,24 +769,25 @@ visible = false
 [node name="FuryInfo" parent="CanvasLayer/PowerupScenes" instance=ExtResource("18_58642")]
 visible = false
 
-[node name="StreetLamp" type="Sprite2D" parent="."]
-position = Vector2(12, 348)
-scale = Vector2(1.6875, 1.64583)
-texture = ExtResource("19_wmg7a")
+[node name="hplabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 203.0
+offset_top = 14.0
+offset_right = 687.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("13_xmh30")
+theme_override_font_sizes/font_size = 32
+text = "<----- Health Points"
 
-[node name="SaveScene" type="Area2D" parent="."]
-position = Vector2(113, 336)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveScene"]
-position = Vector2(19, 13)
-shape = SubResource("RectangleShape2D_wmg7a")
-
-[node name="Stagelabelling" type="Area2D" parent="."]
-position = Vector2(152, 69)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stagelabelling"]
-position = Vector2(199, 346)
-shape = SubResource("RectangleShape2D_n5lmp")
+[node name="Form" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 84.0
+offset_top = 85.0
+offset_right = 568.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("13_xmh30")
+theme_override_font_sizes/font_size = 32
+text = "<----- Form"
 
 [connection signal="timeout" from="BossUI/BossBar/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]

@@ -12,7 +12,7 @@ var isChasing: bool
 var player: CharacterBody2D
 
 
-var health = 100
+var health = 200
 var isDead: bool = false 
 var taking_damage = false
 var isRoaming: bool
@@ -80,10 +80,10 @@ func _physics_process(delta: float) -> void:
 		isChasing = false
 	
 	#Enables the melee attack of Guldan when health reaches 50 and below
-	if health > 60:
+	if health > 110:
 		$GuldanMeleeArea/CollisionShape2D.disabled = true
 		meleeactive = false
-	if health < 60 and not meleeactive:
+	if health < 100 and not meleeactive:
 		$GuldanMeleeArea/CollisionShape2D.disabled = false
 		meleeactive = true
 	

@@ -626,6 +626,15 @@ offset_bottom = -59.0
 theme_override_fonts/font = ExtResource("13_a3a66")
 text = "STAGE 1"
 
+[node name="SavedLabel" type="Label" parent="Player/Camera2D"]
+visible = false
+offset_left = -93.0
+offset_top = -104.0
+offset_right = 97.0
+offset_bottom = -81.0
+theme_override_fonts/font = ExtResource("13_a3a66")
+text = "PROGRESS SAVED"
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-62, 658)
 tile_set = SubResource("TileSet_0mpkd")

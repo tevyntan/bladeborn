@@ -10,7 +10,7 @@ func _ready() -> void:
 	cooldown.max_value = timer.wait_time
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable:
+	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable and not timer_bool:
 		timer.start()
 		timer_bool = true
 		

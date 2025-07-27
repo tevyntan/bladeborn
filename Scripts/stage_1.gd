@@ -12,8 +12,11 @@ func _process(delta: float) -> void:
 
 
 func _on_save_scene_body_entered(body: Node2D) -> void:
+	if Global.LoadScene != scene_file_path:
+		$Player/Camera2D/SavedLabel.visible = true
 	Global.LoadScene = "res://Scenes/Stages/stage_1.tscn"
-
+	await get_tree().create_timer(2).timeout
+	$Player/Camera2D/SavedLabel.visible = false
 
 func _on_next_scene_body_entered(body: Node2D) -> void:
 	$NextScene.set_deferred("monitoring", false)

@@ -74,7 +74,13 @@ func _physics_process(delta: float) -> void:
 
 func handle_animations(delta):
 	if Global.PlayerFullMoon && !isDead:
-		animated_sprite_2d.play("Aura")
+		
+		if !isDead && is_dealing_dmg:
+			animated_sprite_2d.play("AuraAttack")
+			if is_attacking:
+				dmg_animate(delta)
+		else:
+			animated_sprite_2d.play("Aura")
 	else:
 		if !isDead && is_dealing_dmg:
 			animated_sprite_2d.play("Attack")
@@ -155,10 +161,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		self.queue_free()
 	if animated_sprite_2d.animation == "Hurt":
 		taking_damage = false
-	if animated_sprite_2d.animation == "Attack":
+	if animated_sprite_2d.animation == "Attack" or "AuraAttack":
 		is_dealing_dmg = false
 		is_attacking = false
 		$GolemSpiritDmgArea.collision_layer = 8
 		$GolemSpiritDmgArea2.collision_layer = 8
 		$GolemSpiritDmgArea/CollisionShape2D.position.x = 31.0
 		$GolemSpiritDmgArea2/CollisionShape2D.position.x = -25.0
+		await get_tree().create_timer(4.0).timeout
+		$GolemSpiritDealDmgArea/CollisionShape2D.disabled = true
+		$GolemSpiritDealDmgArea/CollisionShape2D.disabled = false

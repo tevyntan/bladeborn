@@ -161,4 +161,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		$GolemDmgArea2.collision_layer = 8
 		$GolemDmgArea/CollisionShape2D.position.x = 31.0
 		$GolemDmgArea2/CollisionShape2D.position.x = -25.0
-		
+		await get_tree().create_timer(4.0).timeout
+		$GolemDealDmgArea/CollisionShape2D.disabled = true
+		$GolemDealDmgArea/CollisionShape2D.disabled = false

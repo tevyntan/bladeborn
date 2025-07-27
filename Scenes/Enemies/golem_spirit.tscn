@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://jygacllulbvb"]
+[gd_scene load_steps=81 format=3 uid="uid://jygacllulbvb"]
 
 [ext_resource type="Script" uid="uid://d3fiox70vjom3" path="res://Scripts/golem_spirit.gd" id="1_16bpd"]
 [ext_resource type="Texture2D" uid="uid://c24kktwacs8ph" path="res://Assets/Sprites/Enemy/Golem_spirit/Attack-Sheet-Sheet.png" id="2_fde6n"]
@@ -97,6 +97,70 @@ atlas = ExtResource("3_fde6n")
 region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7ouf"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe7v8"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ga82"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vnh1"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir665"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihetv"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n22m0"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nelda"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3d2y"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3pu1"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ros6h"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cccad"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4fba"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2eau"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyu1d"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siu0l"]
+atlas = ExtResource("3_fde6n")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10avl"]
 atlas = ExtResource("3_fde6n")
 region = Rect2(672, 0, 96, 96)
 
@@ -291,6 +355,59 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pe7v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ga82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vnh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir665")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihetv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n22m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nelda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3d2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3pu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ros6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cccad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4fba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2eau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyu1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siu0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10avl")
+}],
+"loop": false,
+"name": &"AuraAttack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7jux7")
 }, {
 "duration": 1.0,
@@ -415,8 +532,8 @@ script = ExtResource("1_16bpd")
 position = Vector2(0, -58)
 scale = Vector2(1.81543, 1.81543)
 sprite_frames = SubResource("SpriteFrames_g5nfv")
-animation = &"Attack"
-frame = 14
+animation = &"AuraAttack"
+frame = 15
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

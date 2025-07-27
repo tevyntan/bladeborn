@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbmby0ipewe3w"]
+[gd_scene load_steps=14 format=3 uid="uid://cbmby0ipewe3w"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="2_8od7v"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="3_i3aeo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cerhiauuru0uo" path="res://Assets/Sprites/Map/Tileset/Tileset_crescent.png" id="5_0c07c"]
 [ext_resource type="Texture2D" uid="uid://c6aj1lewkpmqn" path="res://Assets/Sprites/Map/Tileset/texture.png" id="6_2cgwh"]
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="6_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://bopivsrjmuin6" path="res://Scenes/Enemies/golem.tscn" id="7_5wyu1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3aeo"]
 texture = ExtResource("3_i3aeo")
@@ -600,3 +601,6 @@ format = 2
 
 [node name="Mage_enemy" parent="." instance=ExtResource("6_i3aeo")]
 position = Vector2(-286, -95)
+
+[node name="Golem" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(314, 6)

@@ -38,7 +38,7 @@ func _ready() -> void:
 		else:
 			form = true
 			$GuldanHitBox.collision_mask = 1
-		await get_tree().create_timer(10.0).timeout
+		await get_tree().create_timer(5.0).timeout
 
 func move(delta):
 	if Global.PlayerAlive:
@@ -148,7 +148,7 @@ func _on_guldan_deal_dmg_area_body_entered(body: Node2D) -> void:
 		is_dealing_dmg = true
 		await get_tree().create_timer(0.8).timeout
 		spell_cast()
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		$GuldanDealDmgArea/CollisionShape2D.disabled = true
 		$GuldanDealDmgArea/CollisionShape2D.disabled = false
 
@@ -159,28 +159,26 @@ func _on_guldan_melee_area_body_entered(body: Node2D) -> void:
 			meleeattack = true
 			await get_tree().create_timer(0.4).timeout
 			$GuldanMeleeArea.collision_layer = 1
+			$Melee.play()
 			# Check overlaps RIGHT after enabling
 			var bodies = $GuldanMeleeArea.get_overlapping_bodies()
 			var hit = false
 			for b in bodies:
 				if b == Global.PlayerBody:
-					print("player hit")
 					health += 10
 					hit = true
 					break
 			
-			if not hit:
-				print("Attack missed!")
-			
 			await get_tree().create_timer(0.2).timeout
 			$GuldanMeleeArea.collision_layer = 8
 			$GuldanMeleeArea/CollisionShape2D.disabled = true
-			await get_tree().create_timer(5.0).timeout
+			await get_tree().create_timer(2.5).timeout
 			
 			$GuldanMeleeArea/CollisionShape2D.disabled = false
 
 func spell_cast():
 	var spell = Spell.instantiate()
+	$Spell.play()
 	spell.global_position = self.global_position
 	get_parent().add_child(spell)
 

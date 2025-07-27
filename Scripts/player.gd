@@ -39,7 +39,7 @@ func _ready() -> void:
 	invincibility_activated = false
 	invincibility_blocked = false
 	
-	print(Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.FuryUnlocked, Global.FuryAvailable)
+	#print(Global.DoubleJumpUnlocked, Global.DoubleJumpAvailable, Global.InvincibilityUnlocked, Global.InvincibilityAvailable, Global.FuryUnlocked, Global.FuryAvailable)
 
 func _physics_process(delta: float) -> void:
 	Global.PlayerFullMoon = moon

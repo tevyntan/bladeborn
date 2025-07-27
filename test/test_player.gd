@@ -33,6 +33,20 @@ func test_form() -> void:
 	Input.action_release("Moon_Change")
 	assert_true(player.moon == true, "Player expected to change back to ful moon form")
 	
-
+func test_right() -> void:
+	var initial_position = player.global_position
+	Input.action_press("Right")
+	player._physics_process(1.0/60.0)
+	Input.action_release("Right")
+	var final_position = player.global_position
+	assert_true(final_position > initial_position, "Player expected to move right upon D input")
+		
 	
-	
+func test_left() -> void:
+	var initial_position = player.global_position
+	Input.action_press("Left")
+	player._physics_process(1.0/60.0)
+	Input.action_release("Left")
+	var final_position = player.global_position
+	assert_true(final_position < initial_position, "Player expected to move left upon A input")
+		

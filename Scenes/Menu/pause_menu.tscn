@@ -58,6 +58,7 @@ text = "Resume"
 
 [node name="Save" type="Button" parent="PausePanel/PauseButtons"]
 process_mode = 3
+visible = false
 layout_mode = 2
 text = "Save Game"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwogoyg042ohs"]
+[gd_scene load_steps=37 format=3 uid="uid://cwogoyg042ohs"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_7eien"]
 [ext_resource type="Script" uid="uid://doqew13xa8t8y" path="res://Scripts/stage_3.gd" id="1_hkk4a"]
@@ -20,6 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://d1kcalvxb0lij" path="res://Scenes/Powerups/fury_screen.tscn" id="16_0aox7"]
 [ext_resource type="PackedScene" uid="uid://btaln6jvchs4a" path="res://Scenes/Powerups/chest.tscn" id="16_lo83c"]
 [ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="17_xk2oa"]
+[ext_resource type="PackedScene" uid="uid://drx1dek2n7jm5" path="res://Scenes/Powerups/heal.tscn" id="21_xk2oa"]
+[ext_resource type="PackedScene" uid="uid://dmq0kpvn0w8qk" path="res://Scenes/Enemies/satyr_spirit.tscn" id="22_os5qm"]
+[ext_resource type="PackedScene" uid="uid://bkgf3yyx6lfep" path="res://Scenes/Enemies/satyr_enemy.tscn" id="23_2k3l0"]
+[ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="24_mt2g2"]
+[ext_resource type="PackedScene" uid="uid://bopivsrjmuin6" path="res://Scenes/Enemies/golem.tscn" id="25_284x6"]
+[ext_resource type="PackedScene" uid="uid://dhrks88rs4n4g" path="res://Scenes/Enemies/mage_spirit.tscn" id="26_v3dey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lo83c"]
 texture = ExtResource("2_hkk4a")
@@ -737,6 +743,42 @@ position = Vector2(152, 69)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stagelabelling"]
 position = Vector2(217, 332)
 shape = SubResource("RectangleShape2D_lo83c")
+
+[node name="Heal" parent="." instance=ExtResource("21_xk2oa")]
+position = Vector2(288, 622)
+
+[node name="satyr_spirit" parent="." instance=ExtResource("22_os5qm")]
+position = Vector2(374, 623)
+
+[node name="SatyrEnemy" parent="." instance=ExtResource("23_2k3l0")]
+position = Vector2(511, 623)
+
+[node name="Mage_enemy" parent="." instance=ExtResource("24_mt2g2")]
+position = Vector2(826, 558)
+
+[node name="SatyrEnemy2" parent="." instance=ExtResource("23_2k3l0")]
+position = Vector2(674, 336)
+
+[node name="Golem" parent="." instance=ExtResource("25_284x6")]
+position = Vector2(2661, 623)
+
+[node name="Mage_spirit" parent="." instance=ExtResource("26_v3dey")]
+position = Vector2(2607, 241)
+
+[node name="Mage_enemy2" parent="." instance=ExtResource("24_mt2g2")]
+position = Vector2(2599, 335)
+
+[node name="Golem2" parent="." instance=ExtResource("25_284x6")]
+position = Vector2(275, 210)
+
+[node name="satyr_spirit2" parent="." instance=ExtResource("22_os5qm")]
+position = Vector2(685, 140)
+
+[node name="Heal2" parent="." instance=ExtResource("21_xk2oa")]
+position = Vector2(116, 172)
+
+[node name="Heal3" parent="." instance=ExtResource("21_xk2oa")]
+position = Vector2(1253, 103)
 
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]
 [connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]

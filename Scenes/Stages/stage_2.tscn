@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d3wh03ra3h1p7"]
+[gd_scene load_steps=35 format=3 uid="uid://d3wh03ra3h1p7"]
 
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="1_6nrv7"]
 [ext_resource type="Script" uid="uid://cd8x7pdgll6pr" path="res://Scripts/stage_2.gd" id="1_bche0"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrks88rs4n4g" path="res://Scenes/Enemies/mage_spirit.tscn" id="17_2g3hs"]
 [ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="17_h3yy8"]
 [ext_resource type="Texture2D" uid="uid://cgnmxwj8j8r6q" path="res://Assets/Sprites/Map/StreetLamp.png" id="18_jwnsw"]
+[ext_resource type="PackedScene" uid="uid://drx1dek2n7jm5" path="res://Scenes/Powerups/heal.tscn" id="24_6j8kg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fejmu"]
 texture = ExtResource("1_6nrv7")
@@ -767,6 +768,12 @@ position = Vector2(152, 69)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stagelabelling"]
 position = Vector2(232, 392)
 shape = SubResource("RectangleShape2D_ijb4h")
+
+[node name="Heal" parent="." instance=ExtResource("24_6j8kg")]
+position = Vector2(1866, 493)
+
+[node name="Heal2" parent="." instance=ExtResource("24_6j8kg")]
+position = Vector2(762, 203)
 
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]
 [connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bmj8dtin2aqs3"]
+[gd_scene load_steps=34 format=3 uid="uid://bmj8dtin2aqs3"]
 
 [ext_resource type="PackedScene" uid="uid://bcmnb2u1npsq0" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://c8rb82mip5fes" path="res://Assets/Sprites/Map/Tileset/Tileset_full.png" id="2_1phco"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://fb0h06o0t8i" path="res://Scenes/Enemies/mage_enemy.tscn" id="16_nnt18"]
 [ext_resource type="PackedScene" uid="uid://1r5cup3bpks3" path="res://Scenes/Powerups/invincibility_info.tscn" id="16_vm72l"]
 [ext_resource type="PackedScene" uid="uid://dhrks88rs4n4g" path="res://Scenes/Enemies/mage_spirit.tscn" id="17_ewbju"]
+[ext_resource type="PackedScene" uid="uid://drx1dek2n7jm5" path="res://Scenes/Powerups/heal.tscn" id="23_mg4q0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7t8sx"]
 texture = ExtResource("3_wrm1d")
@@ -737,3 +738,9 @@ position = Vector2(3901, 488)
 
 [node name="satyr_spirit2" parent="Enemies" instance=ExtResource("7_1l0tm")]
 position = Vector2(3846, 487)
+
+[node name="Heal" parent="." instance=ExtResource("23_mg4q0")]
+position = Vector2(401, 474)
+
+[node name="Heal2" parent="." instance=ExtResource("23_mg4q0")]
+position = Vector2(500, 495)

@@ -242,6 +242,7 @@ vertical_alignment = 2
 wait_time = 10.0
 
 [node name="FuryMeter" parent="." instance=ExtResource("10_5ep0j")]
+visible = false
 layout_mode = 1
 offset_left = 1030.57
 offset_top = -11.736

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://jygacllulbvb"]
+[gd_scene load_steps=65 format=3 uid="uid://jygacllulbvb"]
 
 [ext_resource type="Script" uid="uid://d3fiox70vjom3" path="res://Scripts/golem_spirit.gd" id="1_16bpd"]
 [ext_resource type="Texture2D" uid="uid://c24kktwacs8ph" path="res://Assets/Sprites/Enemy/Golem_spirit/Attack-Sheet-Sheet.png" id="2_fde6n"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://oqbxx6isween" path="res://Assets/Sprites/Enemy/Golem_spirit/Death.png" id="3_sd4uc"]
 [ext_resource type="Texture2D" uid="uid://c2ndbf1a7xmom" path="res://Assets/Sprites/Enemy/Golem_spirit/Hurt.png" id="4_51gmq"]
 [ext_resource type="Texture2D" uid="uid://dgwfsb3xptf2q" path="res://Assets/Sprites/Enemy/Golem_spirit/Run.png" id="5_6op6i"]
+[ext_resource type="AudioStream" uid="uid://cfb6esl7ip1hs" path="res://Assets/Sounds/815336__artninja__superhero_earth_impact_hit_07062025.wav" id="7_sd4uc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cl5iu"]
 atlas = ExtResource("2_fde6n")
@@ -428,7 +429,7 @@ autostart = true
 
 [node name="GolemSpiritHitBox" type="Area2D" parent="."]
 visible = false
-collision_layer = 128
+collision_layer = 129
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemSpiritHitBox"]
@@ -471,6 +472,10 @@ target_position = Vector2(0, 18)
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
 position = Vector2(48, -14)
 target_position = Vector2(0, 18)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sd4uc")
+volume_db = 3.649
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

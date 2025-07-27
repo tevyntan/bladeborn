@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cq5idyhd3slma"]
+[gd_scene load_steps=34 format=3 uid="uid://cq5idyhd3slma"]
 
 [ext_resource type="Script" uid="uid://ph6jah5710eh" path="res://Scripts/stage_1.gd" id="1_6ly68"]
 [ext_resource type="Texture2D" uid="uid://d24a3hykktnsv" path="res://Assets/Sprites/Map/Tileset/Tileset.png" id="1_e760n"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bopivsrjmuin6" path="res://Scenes/Enemies/golem.tscn" id="17_elwkq"]
 [ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="17_frccm"]
 [ext_resource type="PackedScene" uid="uid://utir4uxsge0w" path="res://Scenes/killzone.tscn" id="22_v41ih"]
+[ext_resource type="PackedScene" uid="uid://drx1dek2n7jm5" path="res://Scenes/Powerups/heal.tscn" id="23_igpd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3a66"]
 texture = ExtResource("1_e760n")
@@ -745,6 +746,9 @@ position = Vector2(81, 712)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_igpd1")
+
+[node name="Heal" parent="." instance=ExtResource("23_igpd1")]
+position = Vector2(1911, 585)
 
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]
 [connection signal="body_entered" from="NextScene" to="." method="_on_next_scene_body_entered"]

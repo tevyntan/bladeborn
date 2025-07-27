@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ddbekispb6bbb"]
+[gd_scene load_steps=33 format=3 uid="uid://ddbekispb6bbb"]
 
 [ext_resource type="PackedScene" uid="uid://bkxtkfjskoym5" path="res://Scenes/background.tscn" id="1_bnrw0"]
 [ext_resource type="Script" uid="uid://d0kkkn4v340h5" path="res://Scripts/boss_room.gd" id="1_l76pc"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d1kcalvxb0lij" path="res://Scenes/Powerups/fury_screen.tscn" id="17_6qujl"]
 [ext_resource type="PackedScene" uid="uid://dauiq4vh5bsqb" path="res://Scenes/Powerups/fury_info.tscn" id="18_58642"]
 [ext_resource type="Texture2D" uid="uid://cgnmxwj8j8r6q" path="res://Assets/Sprites/Map/StreetLamp.png" id="19_wmg7a"]
+[ext_resource type="PackedScene" uid="uid://drx1dek2n7jm5" path="res://Scenes/Powerups/heal.tscn" id="20_n5lmp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l76pc"]
 texture = ExtResource("2_djbyv")
@@ -788,6 +789,12 @@ offset_bottom = 117.0
 theme_override_fonts/font = ExtResource("13_xmh30")
 theme_override_font_sizes/font_size = 32
 text = "<----- Form"
+
+[node name="Heal" parent="." instance=ExtResource("20_n5lmp")]
+position = Vector2(642, 345)
+
+[node name="Heal2" parent="." instance=ExtResource("20_n5lmp")]
+position = Vector2(1108, 342)
 
 [connection signal="timeout" from="BossUI/BossBar/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="SaveScene" to="." method="_on_save_scene_body_entered"]

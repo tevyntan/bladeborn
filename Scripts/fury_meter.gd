@@ -2,6 +2,8 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _process(delta: float) -> void:
+	if Global.FuryUnlocked:
+		$".".visible = true
 	progress_bar.value = Global.PlayerDmgCount * 20
 	if progress_bar.value == 100:
 		Global.FuryMeterFull = true

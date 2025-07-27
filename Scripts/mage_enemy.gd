@@ -109,11 +109,12 @@ func _on_mage_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_mage_deal_dmg_area_body_entered(body: Node2D) -> void:
-	if body == Global.PlayerBody:
+	if body == Global.PlayerBody and not is_dealing_dmg:
 		is_dealing_dmg = true
 		#change collision timer to match animation for player to get hit
 		await get_tree().create_timer(0.6).timeout 
 		$MageDealDmgArea.collision_layer = 1
+		$Attack.play()
 		await get_tree().create_timer(0.2).timeout
 		$MageDealDmgArea.collision_layer = 8
 

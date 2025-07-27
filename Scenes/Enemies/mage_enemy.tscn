@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://fb0h06o0t8i"]
+[gd_scene load_steps=41 format=3 uid="uid://fb0h06o0t8i"]
 
 [ext_resource type="Script" uid="uid://b1ip140gdkuhx" path="res://Scripts/mage_enemy.gd" id="1_utix6"]
 [ext_resource type="Texture2D" uid="uid://cwbu5kb3mv6og" path="res://Assets/Sprites/Enemy/Mage/Attack2-Sheet.png" id="2_ksqxx"]
 [ext_resource type="Texture2D" uid="uid://i4yamlwmw0q" path="res://Assets/Sprites/Enemy/Mage/Walk-Sheet.png" id="2_utix6"]
 [ext_resource type="Texture2D" uid="uid://1860ojfeub71" path="res://Assets/Sprites/Enemy/Mage/Death-Sheet.png" id="3_bfqfb"]
 [ext_resource type="Texture2D" uid="uid://8ksnyfoydi1f" path="res://Assets/Sprites/Enemy/Mage/Hurt-Sheet.png" id="3_ksqxx"]
+[ext_resource type="AudioStream" uid="uid://dm4hsino6im80" path="res://Assets/Sounds/35684__jobro__laser7.wav" id="6_ertwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfqfb"]
 atlas = ExtResource("2_ksqxx")
@@ -292,6 +293,9 @@ target_position = Vector2(0, 12)
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
 position = Vector2(16, -9)
 target_position = Vector2(0, 12)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ertwc")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

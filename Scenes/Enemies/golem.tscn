@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://bopivsrjmuin6"]
+[gd_scene load_steps=55 format=3 uid="uid://bopivsrjmuin6"]
 
 [ext_resource type="Script" uid="uid://c1d7jauaywpsc" path="res://Scripts/golem.gd" id="1_s1ltc"]
 [ext_resource type="Texture2D" uid="uid://djq10mrgbbsdd" path="res://Assets/Sprites/Enemy/Golem/Attack-Sheet.png" id="2_2y62m"]
 [ext_resource type="Texture2D" uid="uid://82matdlhittb" path="res://Assets/Sprites/Enemy/Golem/Death.png" id="3_ib2a8"]
 [ext_resource type="Texture2D" uid="uid://d37xr00pv432c" path="res://Assets/Sprites/Enemy/Golem/Hurt.png" id="4_eijb5"]
 [ext_resource type="Texture2D" uid="uid://dd5km64mvwako" path="res://Assets/Sprites/Enemy/Golem/Run.png" id="5_v0030"]
+[ext_resource type="AudioStream" uid="uid://cfb6esl7ip1hs" path="res://Assets/Sounds/815336__artninja__superhero_earth_impact_hit_07062025.wav" id="6_2y62m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdxfn"]
 atlas = ExtResource("2_2y62m")
@@ -361,7 +362,7 @@ autostart = true
 
 [node name="GolemHitBox" type="Area2D" parent="."]
 visible = false
-collision_layer = 128
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolemHitBox"]
 position = Vector2(0, -30)
@@ -403,6 +404,10 @@ target_position = Vector2(0, 17)
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
 position = Vector2(49, -13)
 target_position = Vector2(0, 17)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2y62m")
+volume_db = 2.737
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

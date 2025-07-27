@@ -115,9 +115,10 @@ func _on_golem_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_golem_deal_dmg_area_body_entered(body: Node2D) -> void:
-	if body == Global.PlayerBody:
+	if body == Global.PlayerBody and not is_dealing_dmg:
 		is_dealing_dmg = true
-		await get_tree().create_timer(0.6).timeout 
+		await get_tree().create_timer(0.6).timeout
+		$Attack.play()
 		is_attacking = true
 
 func dmg_animate(delta):

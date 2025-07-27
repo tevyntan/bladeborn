@@ -15,6 +15,8 @@ var isDead: bool
 var knockback: Vector2 = Vector2.ZERO
 var knockback_time: float = 0.0
 var dmg_amt: int = 10
+var ishealing: bool = false
+var footstep_frames: Array = [1, 5]
 
 var max_health = 100
 var current_jump_count = 0
@@ -75,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Jump") and current_jump_count < max_jump_count:
 			velocity.y = JUMP_VELOCITY
 			current_jump_count += 1
+			$JumpSound.play()
 		
 		#Toggle shield animations
 		if invincibility_activated and not invincibility_blocked:
@@ -141,7 +144,8 @@ func handle_animations():
 			isAttacking = true
 			set_damage()
 			toggle_attack()
-
+			await get_tree().create_timer(0.3).timeout
+			$Slash.play()
 
 #HitBox checker
 func check_hitbox():
@@ -168,10 +172,18 @@ func check_hitbox():
 			damage = 20
 		if hitbox.get_parent() is Guldan_Enemy:
 			damage = Global.GuldanDmgAmt
-		
+		if hitbox is Heal and not ishealing and health < max_health:
+			health += 20
+			ishealing = true
+			$Heal.visible = true
+			await get_tree().create_timer(0.5).timeout
+			$Heal.visible = false
+			ishealing = false
+			
 		
 		if can_take_damage and damage != 0:
 			take_damage(damage)
+			$EnemyHit.play()
 			var knockback_direction = (self.global_position - hitbox.global_position).normalized()
 			handle_knockback(knockback_direction, 1.00, 0.20)
 
@@ -232,7 +244,8 @@ func show_impact_vfx(position: Vector2):
 	var impact = ImpactVFXScene.instantiate()
 	get_tree().current_scene.add_child(impact)
 	impact.global_position = position
-	if not $Fury.visible:
+	$EnemyHit.play()
+	if not $Fury.visible and Global.FuryUnlocked:
 		Global.PlayerDmgCount +=1
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -253,6 +266,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func handle_fury():
 	if Input.is_action_just_pressed("Fury") && Global.FuryAvailable and Global.FuryMeterFull:
+		$FurySound.play()
 		$Fury.visible = true
 		dmg_amt *= 2
 		Global.PlayerDmgAmt = dmg_amt
@@ -266,6 +280,7 @@ func handle_fury():
 
 func handle_invincible():
 	if Input.is_action_just_pressed("Invincible") && Global.InvincibilityAvailable and not invincibility_activated:
+		$Invincible.play()
 		invincibility_activated = true
 		invincibility_blocked = false
 		await get_tree().create_timer(20).timeout
@@ -281,3 +296,10 @@ func _on_deal_dmg_zone_body_entered(body: Node2D) -> void:
 	if body is Guldan_Enemy:
 		impact_pos.y -= 40
 	show_impact_vfx(impact_pos)
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if animated_sprite_2d.animation.ends_with("Run"):
+		if animated_sprite_2d.frame in footstep_frames:
+			var pitch = randf_range(0.9, 3.0) # Random pitch between 0.9x and 1.1x
+			$Footsteps.pitch_scale = pitch
+			$Footsteps.play()

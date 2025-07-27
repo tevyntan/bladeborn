@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		$Player/Camera2D/Defeated.visible = true
 	if Global.GuldanHealth == 0:
 		Bossdead = true
-		$BossUI.queue_free()
+		$BossUI.visible = false
 	else:
 		boss_bar.value = Global.GuldanHealth
 	if boss_bar.value < damage_bar.value and timer.is_stopped():
